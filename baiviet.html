@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đồng bằng Sông Cửu Long</title>
+    <!-- main css -->
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container__l_menu">
+        <div class="logo">
+            <a href="index.html">
+            <img src="./img/logo.png" alt="logo">
+        </a>
+        </div>
+        <div class="menu">
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a>Tỉnh thành</a>
+                <ul class="tt_menu">
+                    <li><a href="index.html">Bến Tre</a></li>
+                    <li><a href="#">Vĩnh Long</a></li>
+                    <li><a href="#">Trà Vinh</a></li>
+                    <li><a href="#">Cà Mau</a></li>
+                    <li><a href="#">Bạc Liêu</a></li>
+                    <li><a href="#">Kiên Giang</a></li>
+                    <li><a href="#">An Giang</a></li>
+                    <li><a href="#">Hậu Giang</a></li>
+                    <li><a href="tinhthanh.html">Cần Thơ</a></li>
+                    <li><a href="#">Đồng Tháp</a></li>
+                    <li><a href="#">Tiền Giang</a></li>
+                    <li><a href="#">Long An</a></li>
+                    <li><a href="#">Sóc Trăng</a></li>
+                </ul>
+                    
+            </li>
+            <li><a href="">Thông tin du lịch</a></li>
+            <li><a href="#">Đánh giá</a></li>
+            <li><a href="gioithieu.html">Giới thiệu</a></li>
+            <li><a href="lienhe.html">Liên hệ</a></li>
+            </div>
+        </div>
+        <div class="others">
+            <li>
+                <input type="text" placeholder="Tìm kiếm" autofocus>
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </li>
+            <div><i class="fa-solid fa-bars"></i></div>
+        </div>
+    </header>
+    <!-- End header -->
+    <div class="baiviet">
+    <div class="noidung_chinh">
+        <div class="head_ndc">
+            <h1>Quán ăn Trung Nguyên</h1>
+            <div class="tt_h_ndc">
+                
+                <p class="baiviet_tinh" ><i style="margin-right: 5px;" class="fa-solid fa-map-location-dot"></i>Cần Thơ</p>
+                <p class="baiviet_rate" ><i class="fa-solid fa-star"></i> 8/10 </i></p>
+                <p class="baiviet_time" ><i style="margin-right: 5px;" class="fa-solid fa-calendar-check"></i>20/01/2024</p>
+                
+            </div>
+        </div>
+        <div class="main_ndc">
+            <h2>Đôi nét về Trung nguyên</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis neque a accusamus reprehenderit quasi architecto repellendus quas officia placeat quidem soluta eius, eaque nobis voluptas ducimus voluptate dicta asperiores quam.</p>
+            <img src="./img/Test.png" alt="">
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur voluptatibus excepturi totam eius at, iste quidem labore vero placeat corrupti, quas unde et veritatis accusantium iusto atque dolorem earum omnis? Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis neque a accusamus reprehenderit quasi architecto repellendus quas officia placeat quidem soluta eius, eaque nobis voluptas ducimus voluptate dicta asperiores quam.</p>
+            <img src="./img/Test.png" alt="">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis neque a accusamus reprehenderit quasi architecto repellendus quas officia placeat quidem soluta eius, eaque nobis voluptas ducimus voluptate dicta asperiores quam.</p>
+            
+        </div>
+    </div>
+    <hr class="hr_baiviet">
+    <div class="goi_y">
+        <h2>Có thể quan tâm:</h2>
+        <div class="goi_y_menu">
+            <div class="contai_g_y">
+                <img src="./img/Test.png" alt="">
+                <a href="#">helo jfhahfuafnaj fuhafanjfh fjahfh</a>
+            </div>
+            <div class="contai_g_y">
+                <img src="./img/Test.png" alt="">
+                <a href="#">heloaj fuhafanjfh fjahfh heloaj fuhafanjfh fjahfh  heloaj fuhafanjfh fjahfh</a>
+            </div>
+            <div class="contai_g_y">
+                <img src="./img/Test.png" alt="">
+                <a href="#">helo jfhahfuafnaj fuhafanjfh fjahfh</a>
+            </div>
+            <div class="contai_g_y">
+                <img src="./img/Test.png" alt="">
+                <a href="#">heafanjfh fjahfh</a>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- footer-->
+    
+
+    <footer id="footer">
+    <div class="back-to-top" onclick="scrollToTop()">↑</div>
+    <!-- Contai6 -->
+    <div class="tieuchi">
+        <div class="tieuchi-img"><img src="./img/chi.jpg" alt=""></div>
+        <div class="thongtin-tc">
+            <hr>
+            <strong>Mục tiêu trở thành nền tảng du lịch số 1 miền Nam</strong>
+            <p>
+                SCL-travel có một định hướng lối đi rõ ràng, là cầu nối giữa người cung cấp dịch vụ du lịch và khách hàng trải nghiệm du lịch.
+                Website hoạt động trong lĩnh vực du lịch với chủ đề chính truyền tải những thông tin về các địa điểm du lịch, những kiến thức giúp bạn đọc hiểu được hơn về Đồng bằng Sông Cửu Long.
+
+                </p>
+            <h3>Đăng kí để nhận thông tin mới nhất. </h3>
+            <div class="register_mail">
+                
+                <form action="/submit" method="post">
+                    <i class="fa-regular fa-envelope"></i>
+                    <input type="email" id="email" name="email" required placeholder="register12@xyz.com">
+                    <input type="submit" value="Gửi ngay">
+                </form>
+            </div>
+        </div>
+    </div>
+     <!-- End Contai6 -->
+        <div class="container_f">
+            <div class="column1">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="./img/logo.png" alt="logo">
+                    </a>
+                    <p>Cung cấp cho bạn những thông tin hữu ích về các điểm đến, dịch vụ nơi bạn quan tâm, và các vấn đề có thể hỗ trợ tốt bạn trong quá trình đi du lịch khi đến với Đồng bằng sông Cửu Long.</p>
+                </div>
+                <!-- Contact -->
+                <div class="footer__contact">
+                    <a href="https://github.com/DuyIt7033">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="https://www.facebook.com/duy.mmtctu?locale=vi_VN">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="https://www.instagram.com/pduy_326/">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="mailto:duynhut75@gmail.com">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            <hr class="f_hr">
+            <div class="column2">
+                <div class="container_tt">
+                    <ul class="two-columns-list">
+                        
+                        <li><a href="#">Bến Tre</a></li>
+                        <li><a href="#">Vĩnh Long</a></li>
+                        <li><a href="#">Trà Vinh</a></li>
+                        <li><a href="#">Cà Mau</a></li>
+                        <li><a href="#">Bạc Liêu</a></li>
+                        <li><a href="#">Kiên Giang</a></li>
+                        
+                    </ul>
+                    <ul class="col2">
+                        <li><a href="#">Hậu Giang</a></li>
+                        <li><a href="#">Cần Thơ</a></li>
+                        <li><a href="#">Đồng Tháp</a></li>
+                        <li><a href="#">Tiền Giang</a></li>
+                        <li><a href="#">Long An</a></li>
+                        <li><a href="#">Sóc Trăng</a></li>
+                        <li><a href="#">An Giang</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+    </footer>
+    <div class="copyright">
+        <p>&copy; SCL-Travel. PTND - 2024.</p>
+    </div>
+<!-- End footer  -->
+</body>
+<!-- Main js -->
+<script src="./js/main.js"></script>
+<!-- Font-icon -->
+<script src="https://kit.fontawesome.com/db1c5ba3fb.js" crossorigin="anonymous"></script>
+</html>

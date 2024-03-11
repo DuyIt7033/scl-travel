@@ -1,0 +1,9 @@
+Trang thông tin du lịch sẽ giới thiệu về top những điểm đến của mỗi tĩnh và hiện cho tất cả 13 tỉnh (Có thể lọc theo tỉnh):
+Ví dụ: 5 địa điểm nhất định phải tới khi đến Cần Thơ:
+1.Bến Ninh Kiều
+2.Chợ nổi CR
+...
+5.Cầu tình yêu
+
+Trang đánh giá sẽ đi sâu vào từng địa điểm (Hiện hết 13 tỉnh và có thể lọc theo từng tỉnh) :
+Mỗi bài viết sẽ nói về chi tiết của địa điểm đó.
