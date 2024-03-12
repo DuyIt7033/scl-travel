@@ -3,11 +3,5 @@
         <div class="danh_mucbv">
             Danh mục bài viết
         </div>
-        <div class="danh_mucbv">
-            Thêm bài viết
-        </div>
-        <div class="danh_mucbv">
-            ạdhkajnfkjahkjahk42356437
-        </div>
         
     </div>
