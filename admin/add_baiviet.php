@@ -1,70 +1,79 @@
 <?php
 include "header_admin.php";
 include "slider_menu.php";
+include "class/baiviet_class.php";
 ?>
 <?php
-// Kết nối đến MySQL
-include 'database.php'; // Điều chỉnh đường dẫn tùy thuộc vào cấu trúc thư mục của bạn
-
-// Xử lý khi form được submit
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Lấy dữ liệu từ form
-    $id_tinh = $_POST["id_tinh"];
-    $id_dm = $_POST["id_dm"];
-    $tieu_de = $_POST["tieu_de"];
-    $noi_dung = $_POST["noi_dung"];
-
-    // Định dạng thời gian
-    $create_time = date("Y-m-d H:i:s");
-
-    // Xử lý upload ảnh (thay đổi tên trường và thư mục lưu trữ nếu cần)
-    $anh_avt_bv = $_FILES["anh_avt_bv"]["name"];
-    $anh_1 = $_FILES["anh_1"]["name"];
-    $anh_2 = $_FILES["anh_2"]["name"];
-
-    // Đường dẫn thư mục lưu trữ ảnh
-    $upload_folder = "uploads/";
-
-    // Di chuyển ảnh tải lên vào thư mục lưu trữ
-    move_uploaded_file($_FILES["anh_avt_bv"]["tmp_name"], $upload_folder . $anh_avt_bv);
-    move_uploaded_file($_FILES["anh_1"]["tmp_name"], $upload_folder . $anh_1);
-    move_uploaded_file($_FILES["anh_2"]["tmp_name"], $upload_folder . $anh_2);
-
-    // Insert dữ liệu vào bảng bai_viet
-    $sql = "INSERT INTO bai_viet (id_tinh, id_dm, tieu_de, create_time, noi_dung, anh_avt_bv, anh_1, anh_2)
-            VALUES ('$id_tinh', '$id_dm', '$tieu_de', '$create_time', '$noi_dung', '$anh_avt_bv', '$anh_1', '$anh_2')";
-
-    if ($conn->query($sql) === TRUE) {
-        echo "Thêm bài viết thành công!";
-    } else {
-        echo "Lỗi: " . $sql . "<br>" . $conn->error;
-    }
-
-    // Đóng kết nối
-    $conn->close();
-}
+ $baiviet = new baiviet;
+ $ds_tinh = new ds_tinh;
 ?>
+<div class="add_bv">
+        <form action="add_baiviet.php" method="post" enctype="multipart/form-data">
+            <h2>Thêm bài viết</h2>
+            <!-- Tiêu đề -->
+            <label for="tieude" >Tiêu Đề:</label>
+            <input type="text" id="tieude" name="tieude" required autofocus>
+    
+            <!-- Nội dung -->
+            <label for="noidung">Nội Dung:</label>
+            <textarea id="noidung" name="noidung" rows="6" style="max-width: 1000px;" required></textarea>
+    
+            
+            <!-- Ngày Viết -->
+            <label for="ngayviet">Ngày Viết:</label>
+            <input type="date" id="ngayviet" name="ngayviet" required>
+    
+            <!-- Loại Bài Viết -->
+            <label for="loaibaiviet">Loại Bài Viết:</label>
+            <select id="loaibaiviet" name="loaibaiviet" required>
+                <option value="topdiadiem">Top địa điểm</option>
+                <option value="cuthe">Địa điểm cụ thể</option>
+            </select>
+    
+            <!-- Tỉnh Thành -->
+            <label for="tinhthanh">Tỉnh Thành:</label>
+            <select id="" name="tinhthanh" required>
+            <?php
+                // Gọi hàm để lấy danh sách tỉnh thành
+                $ds_tinh = new TenLopDsTinh(); // Thay thế TenLopDsTinh bằng tên lớp hoặc hàm thực sự của bạn
+                $show_tinh = $ds_tinh->show_ds_tinh();
 
-    <h2>Thêm Bài Viết</h2>
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
-        
-      
-        <label for="tieu_de">Tiêu Đề:</label>
-        <input type="text" name="tieu_de" required><br>
+                // Kiểm tra xem có dữ liệu tỉnh thành hay không
+                if ($show_tinh) {
+                    while ($result = $show_tinh->fetch_assoc()) {
+                        $ten_tinh = $result['ten_tinh'];
+                        $id_tinh = $result['id_tinh'];
+                        echo "<option value=\"$id_tinh\">$ten_tinh</option>";
+                    }
+                } else {
+                    echo "<option value=\"\">Không có dữ liệu tỉnh thành</option>";
+                }
+                ?>
+                <option value="AnGiang">An Giang</option>
+                <!-- <option value="BenTre">Bến Tre</option>
+                <option value="BacLieu">Bạc Liêu</option>
+                <option value="CaMau">Cà Mau</option>
+                <option value="CanTho">Cần Thơ</option>
+                <option value="DongThap">Đồng Tháp</option>
+                <option value="HauGiang">Hậu Giang</option>
+                <option value="KienGiang">Kiên Giang</option>
+                <option value="LongAn">Long An</option>
+                <option value="SocTrang">Sóc Trăng</option>
+                <option value="TienGiang">Tiền Giang</option>
+                <option value="TraVinh">Trà Vinh</option>
+                <option value="VinhLong">Vĩnh Long</option> -->
+            </select>
+            <!-- Ảnh -->
+            <label for="anh_avt_bv">Ảnh Đại Diện:</label>
+            <input type="file" name="anh_avt_bv"  required><br>
 
-        <label for="noi_dung">Nội Dung:</label>
-        <textarea name="noi_dung" rows="4" required></textarea><br>
-
-        <label for="anh_avt_bv">Ảnh Đại Diện:</label>
-        <input type="file" name="anh_avt_bv" accept="image/*" required><br>
-
-        <label for="anh_1">Ảnh 1:</label>
-        <input type="file" name="anh_1" accept="image/*" required><br>
-
-        <label for="anh_2">Ảnh 2:</label>
-        <input type="file" name="anh_2" accept="image/*" required><br>
-
-        <input type="submit" value="Thêm Bài Viết">
-    </form>
+            <label for="anh">Ảnh :</label>
+            <input type="file" name="anh" required multiple><br>
+    
+            <!-- Nút Submit -->
+            <input class="addBV_btn" type="submit">
+        </form>
+    </div>
+</div>
 </body>
 </html>
