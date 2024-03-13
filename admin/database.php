@@ -1,22 +1,48 @@
 <?php
-// Thông tin kết nối đến MySQL
-$servername = "localhost"; // Thay đổi nếu cần thiết
-$username = "root";
-$password = "";
-$database = "scl"; // Tên của cơ sở dữ liệu
+include "config.php";
+?>
 
-// Tạo kết nối đến MySQL
-$conn = new mysqli($servername, $username, $password, $database);
+<?php
+class Database{
+    public $host = DB_HOST;
+    public $user = DB_USER;
+    public $pass = DB_PASS;
+    public $dbname = DB_NAME;
 
-// Kiểm tra kết nối
-if ($conn->connect_error) {
-    die("Kết nối đến MySQL thất bại: " . $conn->connect_error);
+    public $link;
+    public $error;
+
+    public function __construct() {
+        $this->connectDB();
+    }
+
+    private function connectDB() {
+        $this->link = new mysqli($this->host, $this->user, $this->pass, $this->dbname);
+
+        if ($this->link->connect_error) {
+            die("Kết nối không thành công: " . $this->link->connect_error);
+            return false;
+        }
+    }
+
+    public function select($query) {
+        $result =$this -> link->query($query) or die($this -> link->error.__LINE__);
+        if($result->num_rows >0){
+            return $result;
+        }else{
+            return false;
+        }
+    }
+    
+    public function insert($query) {
+        $insert_row =$this -> link->query($query) or die($this -> link->error.__LINE__);
+        if($insert_row){
+            return $insert_row;
+        }else{
+            return false;
+        }
+    }
+
+
 }
-
-// Nếu bạn muốn sử dụng kết nối này trong các file khác, bạn có thể sử dụng session hoặc biến toàn cục.
-
-// Mã PHP khác nếu cần thiết...
-
-// Đóng kết nối sau khi sử dụng
-$conn->close();
 ?>

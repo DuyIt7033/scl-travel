@@ -1,6 +1,14 @@
 /* Thêm bài viêt  */
+html{
+	font-family: 'Lexend',sans-serif;
+}
+body{
+	padding: 0;
+	margin: 0;
+}
 .banner_admin{
-	background-color: #192134;
+	z-index: 2;
+	background-color: #167EA1;
 	position: fixed;
 	display: inline-block;
 	width: 100%;
@@ -15,17 +23,16 @@
     display: inline-block; /* Đảm bảo gradient chỉ áp dụng cho vùng chữ, không bao gồm khoảng trắng xung quanh */
 	
 }
-.all_BV{
-	padding-top: 100px;
-	/* background-color: #ffc80034; */
-	display: flex;
-	justify-content: space-between;
-}
-.menu_admin{
-	border-radius: 0 15px ;
-	color: rgb(255, 255, 254);
-	flex: 2;
-	background-color: #192134;
+
+.menu_admin {
+	position: fixed;
+    border-radius: 0 15px;
+    color: rgb(255, 255, 254);
+    background-color: #167EA1;
+    height: 100vh;
+	width: fit-content;
+    padding: 20px; /* Optional: Add padding for better spacing */
+    top:80px; /* Adjust the value based on the height of .banner_admin */
 }
 .menu_admin div{
 	padding-bottom: 10px;
@@ -35,53 +42,32 @@
 .menu_admin div:hover{
 	color: #03e4e0; 
 }
-.add_bv{
+
+
+/* tinh thanh  */
+.show_tt,.them_tt{
+	position: relative;
 	align-items: center;
-	flex: 8;
-}
-.add_bv form{
+	text-align: center;
+	background-color: #6da3a639;
+	border-radius: 10px;
 	overflow: hidden;
-	margin-left: 10px;
-	border: none;
-	padding: 70px 100px 0 50px;
-	width: 1000px;
-	display: flex;
-	flex-direction: column;
-	background-color: rgba(240, 241, 184, 0.595);
-	border-radius: 15px;
+	top: 80px;
+	left: 300px;
+	width: 80%;
+}
+
+table{
+	width: 98%;
+	text-align: center;
+	margin: 10pX
 	
 }
-.add_bv form label{
-	margin-top: 20px;
-	margin-bottom: 5px;
-}
-.add_bv form input{
-	margin-bottom: 20px;
-}
-.add_bv form input[type='text']{
-	width: 800px;
-	padding: 10px 0;
-	border: none;
-	border-radius: 15px;
-}
 
-.add_bv form input[type='date'],select {
-	max-width: 200px;
-	
+table,tr,th,td{
+	border: 1px solid gray;
+	border-collapse: collapse;
 }
-.addBV_btn{
-    padding: 1em 20px;
-    background-color: #bcc562;
-    color: #ffffff;
-	max-width: 100px;
-	margin-left: 900px;
-	border-radius: 15px;
-    border: none;
+th{
+	padding: 5px 0;
 }
-.addBV_btn:hover{
-    background-color: #00606c;
-    transition: 0.3s;
-}
-
-
-/* End Thêm bài viêt  */

@@ -3,5 +3,7 @@
         <div class="danh_mucbv">
             Danh mục bài viết
         </div>
-        
+        <div class="danh_mucbv">
+            Tỉnh thành 
+        </div>
     </div>
