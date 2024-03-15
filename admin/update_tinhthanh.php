@@ -5,11 +5,11 @@ include "class/tinhthanh_class.php";
 ?>
 <?php
 $tinhthanh = new tinhthanh;
-$show_tinhthanh = $tinhthanh ->show_tinhthanh();
+$show_tinhthanh = $tinhthanh -> show_tinhthanh();
 ?>
 
 <div class="show_tt">
-<h2>Danh sách tỉnh thành</h2>        
+    <h2>Danh sách tỉnh thành</h2>        
         <table>
             <tr>
                 <th>ID</th>

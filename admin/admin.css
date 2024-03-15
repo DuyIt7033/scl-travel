@@ -30,9 +30,9 @@ body{
     color: rgb(255, 255, 254);
     background-color: #167EA1;
     height: 100vh;
-	width: fit-content;
-    padding: 20px; /* Optional: Add padding for better spacing */
-    top:80px; /* Adjust the value based on the height of .banner_admin */
+    padding: 20px;
+	width: 250px; 
+    top:80px;
 }
 .menu_admin div{
 	padding-bottom: 10px;
@@ -58,7 +58,7 @@ body{
 }
 
 table{
-	width: 98%;
+	width: 97%;
 	text-align: center;
 	margin: 10pX
 	
@@ -70,4 +70,15 @@ table,tr,th,td{
 }
 th{
 	padding: 5px 0;
+}
+button{
+	padding: 10px 20px;
+	border-radius: 15px;
+	background-color: #1c7b7aa3;
+	color: #ffffff;
+	border: none;
+}
+button:hover{
+	background-color: rgb(73, 196, 196);
+	transition: 1s;
 }
