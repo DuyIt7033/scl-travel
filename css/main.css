@@ -1,5 +1,13 @@
 
+:root{
+	--dgreen: #316329;
+	--lgreen:#8ba460;
+	--or-ye:#FAA719;
+	--lye:#f1e64d;
+	--dblue:#023c3f;
+	--lblue:#61c3d2;
 
+}
 html{
 	align-items: center;
 	font-family: 'Lexend',sans-serif;
@@ -14,7 +22,7 @@ body{
     position: fixed;
     bottom: 50px;
     right: 50px;
-    background-color: #FAA719;
+    background-color: var(--or-ye);
     color: #fff;
     padding: 15px 20px;
     cursor: pointer;
@@ -31,7 +39,9 @@ header {
 	align-items: center;
 	z-index: 1000;
 	position: fixed;
-	background-color: #167ea1; 
+	background-color: #056f75;
+	/* background: transparent; */
+	/* backdrop-filter:blur(10px); */
 	top: 0;
 	left: 0;
 	width: 100%; 
@@ -61,7 +71,7 @@ header>.container__l_menu>.logo img{
 		z-index: 1;
 		flex:1;
 		max-height:90px;
-		color: #12496e;
+		color: var(--dblue);
 }
 .menu{
 
@@ -111,7 +121,7 @@ a{
 	color: gray;
 }
 .menu > li > a:hover{
-	color: #e07b10;
+	color: var(--or-ye);
 	background-color: #d6cda2;
 	border-radius: 30px;
 	padding: 10px 5px;
@@ -129,11 +139,11 @@ a{
 }
 
 .tt_menu li a{
-	color: rgb(50, 50, 50);
+	color: gray;
 }
 .tt_menu li a:hover{
 	font-weight: bold;
-	color: #e07b10;
+	color: var(--or-ye);
 	transition: 0.1s;
 }
 /* Thanh tìm kiếm */ 
@@ -208,7 +218,7 @@ a{
 .dot{
 	height: 16px;
 	width: 16px;
-	background-color: rgba(10, 110, 130, 0.7);
+	background-color: var(--dblue);
 	border-radius: 50%;
 	margin-right: 12px;
 	cursor: pointer;
@@ -222,7 +232,7 @@ a{
 	margin-left: 10px;
 }
 .dot.active{
-	background-color: #eeff04;
+	background-color: var(--or-ye);
 } 
 .dot-image{
 	padding-top: 1px;
@@ -281,7 +291,7 @@ a{
 	max-width: 10px;
 	margin-left: 0px;
 	padding: 4px 0 0 20px;
-	background-color: #ffff00;
+	background-color: var(--lye);
 	border-radius: 10px;
 	border: none;
 }
@@ -428,7 +438,7 @@ a{
     text-overflow: ellipsis; /* Hiển thị dấu ba chấm (...) khi chữ bị cắt bớt */
 }
 .info_img_d>a{
-	color: #e07b10;
+	color: var(--or-ye);
 	display: block;
 	/* background-color: #add800; */
 	position: relative;
@@ -451,14 +461,14 @@ a{
 }
 .see_all>a:hover{
 	transition: 1s;
-	background-color: #0f3c58;
+	background-color: var(--dblue);
 }
 /* end thoogn tin */
 /*Review */
 .start_re{
 	max-width: 50px;
 	padding: 5px 0 0 20px;
-	background-color: #ffff00;
+	background-color: var(--lye);
 	border-radius: 10px;
 	border: none;
 }
@@ -501,7 +511,7 @@ a{
 .title_re_row a{
 	flex: 1;
 	text-align: center;
-	color: #12496e;
+	color: var(--dblue);
 }
  .body_re{
 	margin: 25px 100px 50px 100px;
@@ -569,7 +579,7 @@ a{
 	max-width: 10px;
 	margin-left: 0px;
 	padding: 4px 0 0 20px;
-	background-color: #ffc800;
+	background-color: var(--lye);
 	border-radius: 10px;
 	border: none;
 }
@@ -612,12 +622,12 @@ input[type="submit"] {
 	background-color: #58470fc0;
 }
 input[type="submit"]:active{
-	background-color:#dcd744fe;
+	background-color:var(--lye);
 }
 
 .fa-regular {
 	margin-top: 15px;
-	color: #dcd744fe;
+	color: var(--lye);
 	position: absolute;
 	margin-left: 10px;
 	
@@ -627,7 +637,7 @@ input[type="submit"]:active{
 /* footer */
 
 #footer {
-	background: linear-gradient(to right, #171f30, #2eccc1);
+	background: linear-gradient(to right, var(--dblue), var(--lblue));
 	padding: 0;
 	color: white;
 	/* border-radius: 50px 55px 0 0; */
@@ -674,7 +684,7 @@ input[type="submit"]:active{
 }
 .container_tt>ul>li{
 	padding: 5px;
-	color: yellow;
+	color: var(--lye);
 	list-style: circle;
 }
 .container_tt>ul>li>a{
@@ -687,7 +697,7 @@ input[type="submit"]:active{
 	justify-content: flex-start;
 }
 .footer__contact>a{
-	color: yellow;
+	color: var(--lye);
 	margin-left: 50px;
 	
 }
@@ -696,13 +706,13 @@ input[type="submit"]:active{
 }
 .f_hr{
 	padding-left: 2px;
-	background-color: yellow;
+	background-color: var(--lye);
 	border: none;
 }
 /* End footer */
 .copyright {
     background-color: #464646;
-    color: #03e4e0;
+    color: var(--lblue);
     padding: 5px;
     text-align: center;
 }
@@ -712,6 +722,10 @@ input[type="submit"]:active{
 	.menu{
 		overflow: hidden;
 		font-size: 12px;
+		padding: 0px 0;
+	}
+	.menu > li > a{
+		padding: 0;
 	}
 	.welcome{
 		color: #ffffff;
