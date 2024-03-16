@@ -10,7 +10,8 @@ class baiviet_class{
     public function __construct(){
         $this -> db = new Database();
     }
-
+    
+    public function insert_tt(tinh)
    
     
 

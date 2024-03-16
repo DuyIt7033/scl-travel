@@ -43,6 +43,21 @@ body{
 	color: #03e4e0; 
 }
 
+/* Loại bỏ gạch chân đường dẫn */
+details>p > a {
+	text-decoration: none;
+	color: #ffffff;
+	padding: 5px;
+}
+details>p > a:hover {
+	border-radius: 10px;
+	
+	background-color: #094446;
+}
+
+
+
+
 
 /* tinh thanh  */
 .show_tt,.them_tt{
@@ -55,6 +70,23 @@ body{
 	top: 80px;
 	left: 300px;
 	width: 80%;
+}
+.them_tt>form{
+	display: flex;
+	flex-direction: column;
+}
+.cont_add{
+	display: flex;
+	justify-content: space-evenly;
+}
+.cont_add>div>p{
+	font-size: 16px;
+}
+.cont_add>div>input{
+	width: 200px;
+	height: 40px;
+	margin-bottom: 20px;
+	border-radius: 10px;
 }
 
 table{
@@ -71,14 +103,20 @@ table,tr,th,td{
 th{
 	padding: 5px 0;
 }
-button{
-	padding: 10px 20px;
+.add_ttbtn {
+	display: block;
+	
+}
+.add_ttbtn >button{
+	margin-left: 500px;
+	padding: 10px 40px;
 	border-radius: 15px;
-	background-color: #1c7b7aa3;
+	background-color: #085a59;
 	color: #ffffff;
 	border: none;
 }
-button:hover{
+.add_ttbtn >button:hover{
 	background-color: rgb(73, 196, 196);
-	transition: 1s;
+	transition: 0.4s;
 }
+
