@@ -65,6 +65,16 @@ class Database{
             return false;
         }
     }
+
+    public function delete($query){
+        $delete_row = $this -> link->query($query) or die($this -> link->error.__LINE__);
+        if($delete_row){
+            return $delete_row;
+        }else{
+            return false;
+        }
+    }
+
     
 
 

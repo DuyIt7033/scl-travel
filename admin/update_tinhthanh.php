@@ -31,8 +31,10 @@ $show_tinhthanh = $tinhthanh -> show_tinhthanh();
                         ?>
                         <img style="width: auto; height: 100px;" src="<?php echo $src; ?>" alt="">
                     </td>
-                    <td><a href="./edit_tinhthanh.php?id_tinh=<?php echo $result['id_tinh'] ?>">Sửa </a>||
-                        <a href="./del_tinhthanh.php?id_tinh=<?php echo $result['id_tinh'] ?>">Xóa</a>
+                    <td class="sua-xoa">
+                        <a class="sua" href="./edit_tinhthanh.php?id_tinh=<?php echo $result['id_tinh'] ?>">Sửa</a>
+                        ||
+                        <a class="xoa" href="#" onclick="return confirmDelete(<?php echo $result['id_tinh']; ?>)">Xóa</a>
                     </td>
                 </tr>
             <?php
@@ -42,5 +44,19 @@ $show_tinhthanh = $tinhthanh -> show_tinhthanh();
         </table>
     </div>
 </div>
+
+<script>
+    function confirmDelete(id) {
+        var result = confirm("Bạn có chắc muốn xóa?");
+        if (result) {
+            // Nếu người dùng chọn "OK"
+            window.location.href = "./delete_tinhthanh.php?id_tinh=" + id;
+        } else {
+            // Nếu người dùng chọn "Cancel"
+            return false;
+        }
+    }
+</script>
 </body>
+
 </html>

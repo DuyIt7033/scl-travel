@@ -87,6 +87,7 @@ details>p > a:hover {
 	height: 40px;
 	margin-bottom: 20px;
 	border-radius: 10px;
+	border: none;
 }
 
 table{
@@ -102,6 +103,29 @@ table,tr,th,td{
 }
 th{
 	padding: 5px 0;
+}
+.sua-xoa{
+	align-items: center;
+	text-align: center;
+	margin-top: 40px;
+	border: none;
+	display: flex;
+	justify-content: center;
+}
+.sua,.xoa{
+	padding: 5px 15px;
+	border-radius: 5px;
+	color: #085a59;
+}
+.sua:hover{
+	transition: 0.3s;
+	background-color: #16a147;
+	color: rgb(230, 240, 230);
+}
+.xoa:hover{
+	transition: 0.3s;
+	color: rgb(255, 196, 0);
+	background-color: #904101;
 }
 .add_ttbtn {
 	display: block;
