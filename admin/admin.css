@@ -42,10 +42,10 @@ body{
 .menu_admin div:hover{
 	color: #03e4e0; 
 }
-
-/* Loại bỏ gạch chân đường dẫn */
-details>p > a {
+a{
 	text-decoration: none;
+}
+details> p > a {
 	color: #ffffff;
 	padding: 5px;
 }

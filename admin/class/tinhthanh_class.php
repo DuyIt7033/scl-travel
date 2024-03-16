@@ -23,5 +23,18 @@ class tinhthanh{
         return $result;
     
     }
+
+    public function get_tinhthanh(){
+        $query = "SELECT * FROM tinh WHERE id_tinh ='id_tinh'";
+        $result = $this ->db->select($query);
+        return $result;
+    
+    }
+
+    public function update_tinhthanh($Ten_tinh,$id_tinh){
+        $query = "UPDATE tinh SET Ten_tinh ='$Ten_tinh' WHERE id_tinh ='$id_tinh' ";
+        $result = $this ->db->update($query);
+        return $result;
+    }
 }
-?>
+?>S

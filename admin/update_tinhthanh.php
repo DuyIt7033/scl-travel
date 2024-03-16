@@ -31,7 +31,9 @@ $show_tinhthanh = $tinhthanh -> show_tinhthanh();
                         ?>
                         <img style="width: auto; height: 100px;" src="<?php echo $src; ?>" alt="">
                     </td>
-                    <td><a href="#">Sửa</a></td>
+                    <td><a href="./edit_tinhthanh.php?id_tinh=<?php echo $result['id_tinh'] ?>">Sửa </a>||
+                        <a href="./del_tinhthanh.php?id_tinh=<?php echo $result['id_tinh'] ?>">Xóa</a>
+                    </td>
                 </tr>
             <?php
                 }
