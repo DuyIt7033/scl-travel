@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin scl-travel</title>
+    <title>Scl-travel trang quản trị</title>
 </style>
     <link rel="stylesheet" href="./admin.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,5 +12,5 @@
     </head>
 <body>
     <div class="banner_admin">
-        <h2>ADMIN  SCL-Travel</h2>
+        <h2>Scl-travel trang quản trị</h2>
     </div>

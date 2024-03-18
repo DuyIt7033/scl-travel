@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thêm bài viết</title>
+    <link rel="stylesheet" href="./admin.css">
+</head>
+<body>
+    <div class="banner_admin">
+        <h2>ADMIN  SCL-Travel</h2>
+    </div>
+        <div class="menu_admin">
+            <div class="danh_mucbv">
+                Danh mục bài viết
+            </div>
+            <div class="danh_mucbv">
+                Thêm bài viết
+            </div>
+            <div class="danh_mucbv">
+                ạdhkajnfkjahkjahk42356437
+            </div>
+            
+        </div>
+            <div class="them_bv">
+            <h2 style="margin-left: 10px;">Thêm bài viết mới</h2>
+            <form action="#" method="POST">
+            <div class="cont1">
+                <input class="tieu_de" placeholder="Tiêu đề bài viết" type="text" id="title" name="title" required><br>
+                
+               
+                <textarea placeholder="Nội dung bài viết" id="content" name="content" rows="20" cols="100" required></textarea><br>
+                
+                <div class="img_bv">
+                    <p>Ảnh cho bài viết :</p>
+                    <input type="file" name="anh_bv" accept="image/*" required>
+                    
+                </div>
+            </div>
+            <hr>
+            <div class="cont2">
+                <select>
+                    
+                    <option value=""> An Giang</option>
+                    <option value=""> An Giang</option>
+                    <option value=""> An Giang</option>
+                    <option value=""> An Giang</option>
+                    <option value=""> An Giang</option>
+                    <option value=""> An Giang</option>
+                    <option value=""> An Giang</option>
+                </select>
+
+                <select id="" name=""required>
+                    <option value="">Ẩm thực</option>
+                    <option value="">Du lịch</option>
+                    <!-- Thêm các loại bài viết khác tại đây nếu cần -->
+                </select>
+                
+                <select id="post_type" name="post_type" required>
+                    <option value="">Bài viết tổng hợp</option>
+                    <option value="">Bài viết chi tiết</option>
+                    <!-- Thêm các loại bài viết khác tại đây nếu cần -->
+                </select><br><br>
+
+                <div>
+                    <label for="publish_date">Ngày đăng:</label><br>
+                    <br>
+                    <input type="date" id="publish_date" name="publish_date" required><br>
+                </div>
+                <div class="submit_add_bv">
+                    <input type="submit" value="Thêm bài viết">
+                </div>
+                </div>
+                
+            </form>
+        </div>
+</body>
+</html>

@@ -108,13 +108,12 @@ th{
 	align-content: center;
 	align-items: center;
 	text-align: center;
-	/* margin-top: 40px; */
 	border: none;
 	display: flex;
 	justify-content: center;
 }
 .sua,.xoa{
-	padding: 5px 15px;
+	padding: 30px 15px;
 	border-radius: 5px;
 	color: #085a59;
 }
@@ -145,3 +144,78 @@ th{
 	transition: 0.4s;
 }
 
+/* Them bài viết  */
+.them_bv{
+	position: relative;
+	/* align-items: center; */
+	text-align: left;
+	background-color: #6da3a639;
+	border-radius: 10px;
+	overflow: hidden;
+	top: 80px;
+	left: 300px;
+	width: 80%;
+	padding-bottom: 20px;
+}
+
+.them_bv >form{
+	display: flex;
+	justify-content: space-between;
+}
+
+.them_bv >form hr{
+	margin: 0 20px 0 0;
+	padding-left: 2px;
+	background-color: gray;
+	border: none;
+}
+.cont1{
+	flex:7;
+	overflow: hidden;
+	margin: 0 0 0 10px;
+}
+
+.img_bv input{
+	margin-bottom: 50px;
+}
+.cont2{
+	flex:3;
+	display: flex;
+	flex-direction: column;
+	width: fit-content;
+}
+.them_bv select{
+	padding: 5px;
+	margin: 30px 0;
+	max-width: 80%;
+	
+}
+.them_bv label{
+	padding: 5px 20px;
+}
+.cont2 input{
+	padding: 5px 20px;
+}
+.tieu_de{
+	width: 300px;
+	height: 20px;
+	padding: 10px;
+	
+}
+
+.them_bv textarea{
+	padding: 5px 20px;
+	margin: 10px 0;
+}
+.submit_add_bv input{
+	margin: 100px 0px 0 0px;
+	padding: 10px 40px;
+	border-radius: 15px;
+	background-color: #085a59;
+	color: #ffffff;
+	border: none;
+}
+.submit_add_bv input:hover{
+	background-color: rgb(73, 196, 196);
+	transition: 0.4s;
+}

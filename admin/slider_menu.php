@@ -1,7 +1,7 @@
 
     <div class="menu_admin">
-        <div class="danh_mucbv">
-            Danh mục bài viết
+        <div >
+            <h1>Menu Admin</h1>
         </div>
         <div class="admin_tt">
             <details>
