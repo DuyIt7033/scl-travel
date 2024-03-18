@@ -10,7 +10,7 @@ include "slider_menu.php";
             <input class="tieu_de" placeholder="Tiêu đề bài viết" type="text" id="title" name="title" required><br>
 
 
-            <textarea placeholder="Nội dung bài viết" id="content" name="content" rows="20" cols="80" required></textarea><br>
+            <textarea placeholder="Nội dung bài viết" id="editor1" name="content" rows="20" cols="80" required></textarea><br>
 
             <div class="img_bv">
                 <p>Ảnh đại diện:</p>
@@ -58,4 +58,14 @@ include "slider_menu.php";
     </form>
 </div>
 </body>
+<script>
+    CKEDITOR.replace( 'editor1', {
+    filebrowserBrowseUrl: 'ckfinder/ckfinder.html',
+    filebrowserUploadUrl: 'ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+    filebrowserWindowWidth: '1000',
+    filebrowserWindowHeight: '700'
+} );
+
+</script>
+
 </html>

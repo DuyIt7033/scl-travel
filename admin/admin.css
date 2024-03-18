@@ -177,6 +177,7 @@ th{
 .img_bv{
 	margin: 30px;
 	display: flex;
+	justify-content: space-evenly;
 }
 .img_bv input{
 	margin: 12px 0 50px 5px;
