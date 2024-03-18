@@ -25,7 +25,15 @@
                 </p>
             </details>
         </div>
+        <div class="admin_tt">
+            <details>
+                <summary>Bài viết </summary>
+                <p>
+                <a href="./add_bv.php">Thêm bài viết</a>
+                </p>
+                <p>
+                <a href="./update_loaibv.php">Cập nhật loại bài viết</a>
+                </p>
+            </details>
+        </div>
     </div>
-    <style>
-    
-</style>

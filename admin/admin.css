@@ -174,9 +174,14 @@ th{
 	overflow: hidden;
 	margin: 0 0 0 10px;
 }
-
+.img_bv{
+	margin: 30px;
+	display: flex;
+}
 .img_bv input{
-	margin-bottom: 50px;
+	margin: 12px 0 50px 5px;
+	text-align: center;
+	align-items: center;
 }
 .cont2{
 	flex:3;
@@ -200,12 +205,13 @@ th{
 	width: 300px;
 	height: 20px;
 	padding: 10px;
+	margin: 10px 0;
 	
 }
 
 .them_bv textarea{
 	padding: 5px 20px;
-	margin: 10px 0;
+	margin: 30px 0;
 }
 .submit_add_bv input{
 	margin: 100px 0px 0 0px;

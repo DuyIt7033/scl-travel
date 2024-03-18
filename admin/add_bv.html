@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thêm bài viết</title>
     <link rel="stylesheet" href="./admin.css">
+    <script src="./ckeditor/ckeditor.js"></script>
 </head>
 <body>
     <div class="banner_admin">
@@ -29,13 +30,20 @@
                 <input class="tieu_de" placeholder="Tiêu đề bài viết" type="text" id="title" name="title" required><br>
                 
                
-                <textarea placeholder="Nội dung bài viết" id="content" name="content" rows="20" cols="100" required></textarea><br>
+                <textarea  id="editor1" name="content" rows="20" cols="80" required placeholder="Nội dung bài viết"></textarea>
+                <script>
+                    CKEDITOR.replace( 'editor1' );
+                </script>
                 
                 <div class="img_bv">
-                    <p>Ảnh cho bài viết :</p>
-                    <input type="file" name="anh_bv" accept="image/*" required>
-                    
+                    <p>Ảnh đại diện:</p>
+                    <input type="file" name="anh_avt_bv" accept="image/*" required>
+
+                    <p>Ảnh mô tả bài viết :</p>
+                    <input type="file" name="anh_bv" accept="image/*" multiple>
                 </div>
+
+                
             </div>
             <hr>
             <div class="cont2">
@@ -72,7 +80,8 @@
                 </div>
                 </div>
                 
-            </form>
-        </div>
+                </form>
+            </div>
 </body>
+
 </html>
