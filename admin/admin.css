@@ -58,7 +58,12 @@ details>p > a:hover {
 
 
 
+/* Loai bai viet  */
+.add_lbv{
+	width: 200px;
+}
 
+/* End loai bai viet  */
 /* tinh thanh  */
 .show_tt,.them_tt{
 	position: relative;
@@ -175,12 +180,12 @@ th{
 	margin: 0 0 0 10px;
 }
 .img_bv{
-	margin: 30px;
+	margin: 10px;
 	display: flex;
 	justify-content: space-evenly;
 }
 .img_bv input{
-	margin: 12px 0 50px 5px;
+	margin: 12px 0 30px 5px;
 	text-align: center;
 	align-items: center;
 }

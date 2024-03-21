@@ -34,7 +34,18 @@ class Database{
         }
     }
     
-    public function insert($query, $values) {
+    public function insert($query) {
+        // Thực hiện câu truy vấn
+        $insert_row = $this->link->query($query) or die($this -> link->error.__LINE__);
+        
+        // Kiểm tra kết quả thực hiện câu truy vấn
+        if ($insert_row) {
+            return $insert_row;
+        } else {
+            return false;
+        }
+    }
+    public function insert_pro($query, $values) {
         // Sử dụng Prepared Statements để ngăn chặn SQL injection
         $stmt = $this->link->prepare($query);
         if ($stmt) {
@@ -56,7 +67,7 @@ class Database{
             return false;
         }
     }
-
+    
     public function update($query){
         $update_row = $this -> link->query($query) or die($this -> link->error.__LINE__);
         if($update_row){

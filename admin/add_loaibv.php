@@ -49,9 +49,9 @@ window.onload = function() {
             </div>
             <div class="loai_baiviet">
                 <p>Loại bài viết:</p>
-                <select name="loai_baiviet" required>
-                    <option value="tổng hợp">Tổng hợp</option>
-                    <option value="chi tiết">Chi tiết</option>
+                <select class="add_lbv" name="loai_baiviet" required>
+                    <option value="Tổng hợp">Tổng hợp</option>
+                    <option value="Chi tiết">Chi tiết</option>
                 </select>
             </div>
         </div>

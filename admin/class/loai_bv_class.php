@@ -10,11 +10,13 @@ class loaibv {
     }
 
     public function insert_loaibv($ten_loai, $loai_baiviet) {
-        $query = "INSERT INTO loai_bv (ten_loai, loai_baiviet) VALUES (?, ?)";
-        $values = array($ten_loai, $loai_baiviet);
-        $result = $this->db->insert($query, $values);
-        return $result;
+        // Tạo câu truy vấn
+        $query = "INSERT INTO loai_bv (ten_loai, loai_baiviet) VALUES ('$ten_loai', '$loai_baiviet')";
+        
+        // Gọi phương thức insert từ đối tượng Database và trả về kết quả
+        return $this->db->insert($query);
     }
+    
 
     public function show_loaibv() {
         $query = "SELECT * FROM loai_bv";

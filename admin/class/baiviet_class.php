@@ -2,41 +2,56 @@
 include "database.php"
 ?>
 <?php
-class tinhthanh{
+class baiviet{
     private $db;
     // Constructor để khởi tạo đối tượng kết nối
     public function __construct() {
         $this->db = new Database();
     }
 
-    public function insert_tinhthanh($Ten_tinh, $anh_avt_tinh) {
-        // Sử dụng Prepared Statements để ngăn chặn SQL injection
-        $query = "INSERT INTO tinh (Ten_tinh, anh_avt_tinh) VALUES (?, ?)";
-        $values = array($Ten_tinh, $anh_avt_tinh);
-        $result = $this->db->insert_pro($query, $values);
+    public function insert_bv() {
+        $tieu_de = $_POST['tieu_de'];
+        $id_tinh = $_POST['id_tinh'];
+        $id_loai = $_POST['id_loai'];
+        $noidung = $_POST['noidung'];
+        $anh_avt_bv = $_FILES['anh_avt_bv']['name'];
+        $publish_date = $_POST['publish_date'];
+    
+        $query = "INSERT INTO baiviet (tieu_de, id_tinh, id_loai, noidung, anh_avt_bv, publish_date)
+         VALUES ('$tieu_de', '$id_tinh', '$id_loai', '$noidung', '$anh_avt_bv', '$publish_date')";
+        
+        // Truyền mảng rỗng hoặc null vào hàm insert()
+        $result = $this->db->insert($query); // hoặc $result = $this->db->insert($query, null);
         return $result;
     }
+    
+    
 
+    public function show_bv(){
+        $query = "SELECT * FROM baiviet";
+        $result = $this ->db->select($query);
+        return $result;
+    }
     public function show_tinhthanh(){
         $query = "SELECT * FROM tinh";
         $result = $this ->db->select($query);
         return $result;
     
     }
+    public function show_loaibv() {
+        $query = "SELECT * FROM loai_bv";
+        $result = $this->db->select($query);
+        return $result;
+    }
 
-    public function get_tinhthanh(){
+    public function get_bv(){
         $query = "SELECT * FROM tinh WHERE id_tinh ='id_tinh'";
         $result = $this ->db->select($query);
         return $result;
     
     }
 
-    // public function update_tinhthanh($Ten_tinh,$anh_avt_tinh, $id_tinh){
-    //     $query = "UPDATE tinh SET Ten_tinh ='$Ten_tinh' , anh_avt_tinh ='$anh_avt_tinh' WHERE id_tinh ='$id_tinh' ";
-    //     $result = $this ->db->update($query);
-    //     return $result;
-    // }
-    public function update_tinhthanh($Ten_tinh, $anh_avt_tinh, $id_tinh){
+    public function update_bv($Ten_tinh, $anh_avt_tinh, $id_tinh){
         // Khởi tạo một mảng để lưu các thông tin cần cập nhật
         $update_fields = array();
     
@@ -62,12 +77,13 @@ class tinhthanh{
         return $result;
     }
 
-    public function del_tinhthanh($id_tinh){
-        $query = "DELETE FROM tinh WHERE id_tinh = '$id_tinh'";
-        $result = $this ->db->delete($query);
-        header('Location: update_tinhthanh.php');
+    public function del_bv($id_bv){
+        $query = "DELETE FROM baiviet WHERE id_bv = '$id_bv'";
+        $result = $this->db->delete($query);
         return $result;
     }
     
-}
-?>S
+    }
+    
+
+?>
