@@ -22,6 +22,18 @@ class baiviet{
         
         // Truyền mảng rỗng hoặc null vào hàm insert()
         $result = $this->db->insert($query); // hoặc $result = $this->db->insert($query, null);
+
+        if($result){
+            $query = "SELECT * FROM baiviet ORDER BY id_tinh DESC LIMIT 1";
+            $result = $this -> db -> select($query)->fetch_assoc();
+            $id_tinh = $result['id_tinh'];
+
+            $filename = $_FILES['anh_avt_bv']['name'];
+            foreach ($filename as $key = $value){
+                $query = "INSERT INTO anh_bv(id_baiviet,anh_baiviet) VALUES ('$id_baiviet','$value')";
+                $result = $this->db->insert($query);
+            }
+        }
         return $result;
     }
     
