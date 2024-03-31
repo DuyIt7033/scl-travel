@@ -2,77 +2,105 @@
 include "database.php"
 ?>
 <?php
-class baiviet{
+class baiviet
+{
     private $db;
     // Constructor để khởi tạo đối tượng kết nối
-    public function __construct() {
+    public function __construct()
+    {
         $this->db = new Database();
     }
 
-    public function insert_bv() {
+    public function insert_bv()
+    {
         $tieu_de = $_POST['tieu_de'];
         $id_tinh = $_POST['id_tinh'];
         $id_loai = $_POST['id_loai'];
         $noidung = $_POST['noidung'];
         $anh_avt_bv = $_FILES['anh_avt_bv']['name'];
         $publish_date = $_POST['publish_date'];
-    
+
+        move_uploaded_file($_FILES['anh_avt_bv']['tmp_name'], "uploads/" . $_FILES['anh_avt_bv']['name']);
+
         $query = "INSERT INTO baiviet (tieu_de, id_tinh, id_loai, noidung, anh_avt_bv, publish_date)
-         VALUES ('$tieu_de', '$id_tinh', '$id_loai', '$noidung', '$anh_avt_bv', '$publish_date')";
-        
-        // Truyền mảng rỗng hoặc null vào hàm insert()
-        $result = $this->db->insert($query); // hoặc $result = $this->db->insert($query, null);
+                  VALUES ('$tieu_de', '$id_tinh', '$id_loai', '$noidung', '$anh_avt_bv', '$publish_date')";
 
-        if($result){
-            $query = "SELECT * FROM baiviet ORDER BY id_tinh DESC LIMIT 1";
-            $result = $this -> db -> select($query)->fetch_assoc();
-            $id_tinh = $result['id_tinh'];
+        $result = $this->db->insert($query);
 
-            $filename = $_FILES['anh_avt_bv']['name'];
-            foreach ($filename as $key = $value){
-                $query = "INSERT INTO anh_bv(id_baiviet,anh_baiviet) VALUES ('$id_baiviet','$value')";
+        if ($result) {
+            $query = "SELECT * FROM baiviet ORDER BY id_baiviet DESC LIMIT 1";
+            $result = $this->db->select($query)->fetch_assoc();
+            $id_baiviet = $result['id_baiviet'];
+
+            $filename = $_FILES['anh_baiviet']['name'];
+            $filetmp = $_FILES['anh_baiviet']['tmp_name'];
+
+            foreach ($filename as $key => $value) {
+                move_uploaded_file($filetmp[$key], "uploads/" . $value);
+
+                $query = "INSERT INTO anh_bv_mt (id_baiviet, anh_baiviet) VALUES ('$id_baiviet', '$value')";
                 $result = $this->db->insert($query);
             }
         }
         return $result;
     }
-    
-    
 
-    public function show_bv(){
+
+
+
+
+    public function show_bv()
+    {
         $query = "SELECT * FROM baiviet";
-        $result = $this ->db->select($query);
+        $result = $this->db->select($query);
         return $result;
     }
-    public function show_tinhthanh(){
+    public function show_tinhthanh()
+    {
         $query = "SELECT * FROM tinh";
-        $result = $this ->db->select($query);
+        $result = $this->db->select($query);
         return $result;
-    
     }
-    public function show_loaibv() {
+    public function show_loaibv()
+    {
         $query = "SELECT * FROM loai_bv";
         $result = $this->db->select($query);
         return $result;
     }
 
-    public function get_bv(){
-        $query = "SELECT * FROM tinh WHERE id_tinh ='id_tinh'";
-        $result = $this ->db->select($query);
+    public function get_bv($id_baiviet)
+    {
+        $query = "SELECT * FROM baiviet WHERE id_baiviet = '$id_baiviet'";
+        $result = $this->db->select($query);
         return $result;
-    
     }
 
-    public function update_bv($Ten_tinh, $anh_avt_tinh, $id_tinh){
+    public function update_bv($tieu_de, $id_tinh, $id_loai, $noidung, $anh_avt_bv, $publish_date, $id_baiviet)
+    {
         // Khởi tạo một mảng để lưu các thông tin cần cập nhật
         $update_fields = array();
     
         // Xây dựng câu truy vấn SQL dựa trên các trường hợp
-        if (!empty($Ten_tinh)) {
-            $update_fields[] = "Ten_tinh = '$Ten_tinh'";
+        if (!empty($tieu_de)) {
+            $update_fields[] = "tieu_de = '$tieu_de'";
         }
-        if (!empty($anh_avt_tinh)) {
-            $update_fields[] = "anh_avt_tinh = '$anh_avt_tinh'";
+        if (!empty($id_tinh)) {
+            $update_fields[] = "id_tinh = '$id_tinh'";
+        }
+        if (!empty($id_loai)) {
+            $update_fields[] = "id_loai = '$id_loai'";
+        }
+        if (!empty($noidung)) {
+            $update_fields[] = "noidung = '$noidung'";
+        }
+        if (!empty($anh_avt_bv)) {
+            // Lưu ảnh đại diện mới vào thư mục
+            move_uploaded_file($_FILES['anh_avt_bv']['tmp_name'], "uploads/" . $anh_avt_bv);
+            // Cập nhật tên ảnh mới trong cơ sở dữ liệu
+            $update_fields[] = "anh_avt_bv = '$anh_avt_bv'";
+        }
+        if (!empty($publish_date)) {
+            $update_fields[] = "publish_date = '$publish_date'";
         }
     
         // Nếu không có trường nào được cập nhật, không cần thực hiện truy vấn
@@ -81,21 +109,27 @@ class baiviet{
         }
     
         // Xây dựng câu truy vấn update
-        $update_query = "UPDATE tinh SET " . implode(", ", $update_fields) . " WHERE id_tinh = '$id_tinh'";
+        $update_query = "UPDATE baiviet SET " . implode(", ", $update_fields) . " WHERE id_baiviet = '$id_baiviet'";
     
         // Thực hiện truy vấn
-        $result = $this->db->update($update_query);
+        $values = array($id_baiviet);
+        $result = $this->db->update($update_query, $values);
     
         return $result;
     }
+    
 
-    public function del_bv($id_bv){
-        $query = "DELETE FROM baiviet WHERE id_bv = '$id_bv'";
+
+
+
+    public function del_bv($id_baiviet)
+    {
+        $query = "DELETE FROM baiviet WHERE id_baiviet = '$id_baiviet'";
         $result = $this->db->delete($query);
+        header('Location: update_bv.php');
         return $result;
     }
-    
-    }
-    
+}
+
 
 ?>

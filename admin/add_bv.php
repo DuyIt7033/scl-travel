@@ -9,25 +9,25 @@ $baiviet= new baiviet;
 $show_tinhthanh = $baiviet -> show_tinhthanh();
 $show_loaibv = $baiviet -> show_loaibv();
 
-// $message = "";
+$message = "";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $insert_bv = $baiviet->insert_bv($_POST, $_FILES);
 
-    // if ($insert_loaibv) {
-    //     // Chuyển hướng sau khi thêm thành công, sử dụng phương thức GET
-    //     header("Location: add_loaibv.php?success=1");
-    //     exit(); // Dừng việc thực thi mã sau khi chuyển hướng
-    // } else {
-    //     $message = "Thêm loại bài viết thất bại!";
-    // }
+    if ($insert_bv) {
+        // Chuyển hướng sau khi thêm thành công, sử dụng phương thức GET
+        header("Location: add_bv.php?success=1");
+        exit(); // Dừng việc thực thi mã sau khi chuyển hướng
+    } else {
+        $message = "Thêm bài viết thất bại!";
+    }
 }
 
 // Hiển thị thông báo thành công nếu được chuyển hướng từ POST thành công
-// if (isset($_GET['success']) && $_GET['success'] == 1) {
-//     $message = "Thêm loại bài viết thành công!";
-// }
+if (isset($_GET['success']) && $_GET['success'] == 1) {
+    $message = "Thêm bài viết thành công!";
+}
 ?>
 
 
@@ -39,8 +39,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <p>Ảnh đại diện:</p>
                 <input type="file" name="anh_avt_bv" accept="image/*" required>
 
-                <!-- <p>Ảnh mô tả :</p>
-                <input type="file" name="anh_bv" accept="image/*" multiple> -->
+                <p>Ảnh mô tả :</p>
+                <input type="file" name="anh_baiviet[]" accept="image/*" multiple>
             </div>
 
             <input class="tieu_de" placeholder="Tiêu đề bài viết" type="text" id="title" name="tieu_de" required><br>
@@ -105,5 +105,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 } );
 
 </script>
-<!-- Thông báo  -->
+<script>
+window.onload = function() {
+    var message = "<?php echo $message; ?>";
+    if (message !== "") {
+        alert(message);
+        var message = ""; 
+    }
+}
+</script>
+
+
 </html>

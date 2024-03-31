@@ -31,7 +31,7 @@
                 <a href="./add_bv.php">Thêm bài viết</a>
             </p>
             <p>
-                <a href="./update_loaibv.php">Cập nhật loại bài viết</a>
+                <a href="./update_bv.php">Cập nhật bài viết</a>
             </p>
         </details>
     </div>
