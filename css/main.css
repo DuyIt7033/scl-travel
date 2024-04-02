@@ -55,17 +55,7 @@ header {
 	display: flex;
 }
 
-/* header:hover{
-	background: linear-gradient(to right, #3498db, #2ecc71);
-	transition: 1s;
-} */
-/* .logo img{
-	z-index: 1;
-	position: relative;
-	flex:1;
-	max-height: 80px;
-	//all-logo
-} */
+
 header>.container__l_menu>.logo img{
 		z-index: 1;
 		flex:1;
@@ -73,7 +63,6 @@ header>.container__l_menu>.logo img{
 		color: var(--dblue);
 }
 .menu{
-
 	z-index: 1;
 	flex: 1;
 	display: flex;
@@ -158,7 +147,7 @@ a{
 .others input {
 	display: inline-block;
 	width: 30vh;
-	height: 4vh;
+	height: 6vh;
 	border: none; 
 	border-radius: 25px; 
 	font-size: 12px;
@@ -1002,9 +991,10 @@ strong{
 	object-fit: cover;
 }
 .a_i_title h1{
-	color: #ffffff;
+	color: var(--or-ye);
 	position: absolute;
 	font-size: 36px;
+	
 } 
 
 .all_info{

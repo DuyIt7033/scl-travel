@@ -12,11 +12,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Kiểm tra xem người dùng đã chọn tệp ảnh mới hay không
     if (!empty($_FILES['anh_avt_tinh']['name'])) {
         $anh_avt_tinh_tmp = $_FILES['anh_avt_tinh']['tmp_name'];
-        if (!empty($anh_avt_tinh_tmp) && file_exists($anh_avt_tinh_tmp)) { // Kiểm tra xem đường dẫn tạm thời có tồn tại không
-            $anh_avt_tinh = addslashes(file_get_contents($anh_avt_tinh_tmp)); // Đọc và mã hóa dữ liệu ảnh thành chuỗi để lưu vào cơ sở dữ liệu
+        if (!empty($anh_avt_tinh_tmp) && file_exists($anh_avt_tinh_tmp)) { 
+            $anh_avt_tinh = addslashes(file_get_contents($anh_avt_tinh_tmp)); 
         } else {
-            // Xử lý khi không có tệp ảnh hoặc đường dẫn tạm thời không hợp lệ
-            // Bạn có thể thông báo cho người dùng hoặc thực hiện các hành động phù hợp khác ở đây
         }
     } else {
         // Nếu không có tệp ảnh mới được chọn, giữ nguyên ảnh đã có trong cơ sở dữ liệu
@@ -29,9 +27,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $update_tinhthanh = $tinhthanh->update_tinhthanh($Ten_tinh, $anh_avt_tinh, $id_tinh);
     if ($update_tinhthanh) {
-        // Chuyển hướng sau khi cập nhật thành công, sử dụng phương thức GET
+        // Chuyển hướng sau khi cập nhật thành công
         header("Location: update_tinhthanh.php?id_tinh=$id_tinh&success=1");
-        exit(); // Dừng việc thực thi mã sau khi chuyển hướng
+        exit(); 
     } else {
         $message = "Cập nhật ảnh thất bại!";
     }
