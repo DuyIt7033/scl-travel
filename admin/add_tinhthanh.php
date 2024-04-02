@@ -8,13 +8,14 @@ $message = "";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $Ten_tinh = $_POST['Ten_tinh'];
+    $Mo_ta = $_POST['Mo_ta'];
 
     if (isset($_FILES['anh_avt_tinh'])) {
         $anh_avt_tinh = $_FILES['anh_avt_tinh']['tmp_name'];
         $imageData = file_get_contents($anh_avt_tinh);
     }
 
-    $insert_tinhthanh = $tinhthanh->insert_tinhthanh($Ten_tinh, $imageData);
+    $insert_tinhthanh = $tinhthanh->insert_tinhthanh($Ten_tinh, $imageData,$Mo_ta);
     if ($insert_tinhthanh) {
         // Chuyển hướng sau khi thêm thành công, sử dụng phương thức GET
         header("Location: add_tinhthanh.php?success=1");
@@ -53,6 +54,9 @@ window.onload = function() {
                 <p>Ảnh đại diện :</p>
                 <input type="file" name="anh_avt_tinh" accept="image/*" required>
             </div>
+        </div>
+        <div class="mota_tinh" >
+            <textarea name="Mo_ta" cols="100" rows="10" placeholder="Mô tả về tỉnh"></textarea>
         </div>
         <div class="add_ttbtn">
             <button type="submit">

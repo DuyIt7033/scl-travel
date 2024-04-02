@@ -7,7 +7,7 @@ $loaibv = new loaibv;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $ten_loai = $_POST['ten_loai'];
-    $id_loai = $_GET['id_loai']; // Lấy id_loai từ query string
+    $id_loai = $_GET['id_loai']; 
 
     // Kiểm tra xem người dùng đã chọn loại bài viết mới hay không
     $loai_baiviet = $_POST['loai_baiviet'];
@@ -44,7 +44,8 @@ if ($get_loaibv) {
         <div class="cont_add">
             <div class="ten">
                 <p>Tên loại bài viết:</p>
-                <input type="text" name="ten_loai" autofocus value="<?php echo isset($result['ten_loai']) ? $result['ten_loai'] : ''; ?>"> <!-- Hiển thị giá trị cũ của ten_loai -->
+                <input type="text" name="ten_loai" autofocus value="<?php echo isset($result['ten_loai']) ? $result['ten_loai'] : ''; ?>">
+                 <!-- Hiển thị giá trị cũ của ten_loai -->
             </div>
             <div class="loai_baiviet">
                 <p>Loại bài viết:</p>

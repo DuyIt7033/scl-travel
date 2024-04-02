@@ -9,10 +9,10 @@ class tinhthanh{
         $this->db = new Database();
     }
 
-    public function insert_tinhthanh($Ten_tinh, $anh_avt_tinh) {
+    public function insert_tinhthanh($Ten_tinh, $anh_avt_tinh, $Mo_ta) {
         // Sử dụng Prepared Statements để ngăn chặn SQL injection
-        $query = "INSERT INTO tinh (Ten_tinh, anh_avt_tinh) VALUES (?, ?)";
-        $values = array($Ten_tinh, $anh_avt_tinh);
+        $query = "INSERT INTO tinh (Ten_tinh, anh_avt_tinh,Mo_ta) VALUES (?, ?,?)";
+        $values = array($Ten_tinh, $anh_avt_tinh,$Mo_ta);
         $result = $this->db->insert_pro($query, $values);
         return $result;
     }
@@ -36,7 +36,7 @@ class tinhthanh{
     //     $result = $this ->db->update($query);
     //     return $result;
     // }
-    public function update_tinhthanh($Ten_tinh, $anh_avt_tinh, $id_tinh){
+    public function update_tinhthanh($Ten_tinh, $anh_avt_tinh, $id_tinh, $Mo_ta){
         // Khởi tạo một mảng để lưu các thông tin cần cập nhật
         $update_fields = array();
     
@@ -46,6 +46,9 @@ class tinhthanh{
         }
         if (!empty($anh_avt_tinh)) {
             $update_fields[] = "anh_avt_tinh = '$anh_avt_tinh'";
+        }
+        if (!empty($Mo_ta)) {
+            $update_fields[] = "Mo_ta = '$Mo_ta'";
         }
     
         // Nếu không có trường nào được cập nhật, không cần thực hiện truy vấn
