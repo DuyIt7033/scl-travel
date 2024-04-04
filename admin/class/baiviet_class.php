@@ -17,13 +17,14 @@ class baiviet
         $id_tinh = $_POST['id_tinh'];
         $id_loai = $_POST['id_loai'];
         $noidung = $_POST['noidung'];
+        $mo_ta_ngan = $_POST['mo_ta_ngan'];
         $anh_avt_bv = $_FILES['anh_avt_bv']['name'];
         $publish_date = $_POST['publish_date'];
 
         move_uploaded_file($_FILES['anh_avt_bv']['tmp_name'], "uploads/" . $_FILES['anh_avt_bv']['name']);
 
-        $query = "INSERT INTO baiviet (tieu_de, id_tinh, id_loai, noidung, anh_avt_bv, publish_date)
-                  VALUES ('$tieu_de', '$id_tinh', '$id_loai', '$noidung', '$anh_avt_bv', '$publish_date')";
+        $query = "INSERT INTO baiviet (tieu_de, id_tinh, id_loai, noidung, mo_ta_ngan, anh_avt_bv, publish_date)
+                  VALUES ('$tieu_de', '$id_tinh', '$id_loai', '$noidung','$mo_ta_ngan', '$anh_avt_bv', '$publish_date')";
 
         $result = $this->db->insert($query);
 

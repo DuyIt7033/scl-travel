@@ -192,11 +192,11 @@ include "header.php";
 <div class="review">
     <div class="title_re">
         <hr class="start_re">
-        <h2>Đánh giá</h2>
-        <p>Tổng hợp thông tin Reviews chi tiết</p>
+        <h2>Đánh giá </h2>
+        <p>Tổng hợp thông tin chi tiết</p>
     </div>
     <div class="title_re_row">
-        <h3>Bài viết đánh giá thực tế</h3>
+        <h3>Bài viết đánh giá </h3>
         <hr>
         <a href="#"> Xem tất cả <i class="fa-solid fa-arrow-right"></i></a>
     </div>

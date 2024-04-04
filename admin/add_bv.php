@@ -43,6 +43,8 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
             </div>
 
             <input class="tieu_de" placeholder="Tiêu đề bài viết" type="text" id="title" name="tieu_de" required><br>
+            <textarea class="mota_ngan" placeholder="Mô tả ngắn" name="mo_ta_ngan" rows="3" cols="80"  required></textarea>
+            <br>
 
 
             <textarea id="editor1" placeholder="Nội dung bài viết"  name="noidung" rows="20" cols="80" required></textarea><br>

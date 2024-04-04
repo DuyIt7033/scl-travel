@@ -45,10 +45,6 @@ class baiviet
         return $result;
     }
 
-
-
-
-
     public function show_bv()
     {
         $query = "SELECT * FROM baiviet";
@@ -79,7 +75,7 @@ class baiviet
     {
         // Khởi tạo một mảng để lưu các thông tin cần cập nhật
         $update_fields = array();
-    
+
         // Xây dựng câu truy vấn SQL dựa trên các trường hợp
         if (!empty($tieu_de)) {
             $update_fields[] = "tieu_de = '$tieu_de'";
@@ -102,22 +98,22 @@ class baiviet
         if (!empty($publish_date)) {
             $update_fields[] = "publish_date = '$publish_date'";
         }
-    
+
         // Nếu không có trường nào được cập nhật, không cần thực hiện truy vấn
         if (empty($update_fields)) {
             return false; // Trả về false để báo hiệu rằng không có gì cần cập nhật
         }
-    
+
         // Xây dựng câu truy vấn update
         $update_query = "UPDATE baiviet SET " . implode(", ", $update_fields) . " WHERE id_baiviet = '$id_baiviet'";
-    
+
         // Thực hiện truy vấn
         $values = array($id_baiviet);
         $result = $this->db->update($update_query, $values);
-    
+
         return $result;
     }
-    
+
 
 
 
@@ -129,7 +125,14 @@ class baiviet
         header('Location: update_bv.php');
         return $result;
     }
+    public function get_baiviet_by_tinh($id_tinh)
+    {
+        $query = "SELECT * FROM baiviet WHERE id_tinh = '$id_tinh'";
+        $result = $this->db->select($query);
+        return $result;
+    }
 }
+
 
 
 ?>

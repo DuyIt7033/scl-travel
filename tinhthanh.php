@@ -1,13 +1,14 @@
 <?php
 include "header.php";
+include "class/baiviet_class.php";
 
-$id_tinh = $_GET['id_tinh']; 
+$id_tinh = $_GET['id_tinh'];
 $tinhthanh = new tinhthanh;
 $tinh_info = $tinhthanh->get_tinhthanh($id_tinh);
 
 
 // Kiểm tra xem có tham số id_tinh được truyền vào không
-if(isset($id_tinh)) {
+if (isset($id_tinh)) {
     if ($tinh_info && $tinh_info->num_rows > 0) {
         $row = $tinh_info->fetch_assoc();
         echo '<div class="a_i_title">';
@@ -26,6 +27,10 @@ if(isset($id_tinh)) {
     // Hiển thị thông báo nếu không có tham số id_tinh được truyền vào
     echo "Không có id tỉnh được cung cấp.";
 }
+
+$baiviet = new baiviet;
+$baiviet_list = $baiviet->get_baiviet_by_tinh($id_tinh);
+
 ?>
 
 
@@ -39,99 +44,38 @@ if(isset($id_tinh)) {
     </div> -->
 <div class="info_tinh">
     <div class="info_tinh_title">
-        <h2>Cẩm nang du lịch</h2>
+        <h2>Cẩm nang du lịch tỉnh <?php echo $row['Ten_tinh']; ?></h2>
         <hr>
     </div>
     <div class="info_tinh_cont">
-        <div class="info_tinh_detail">
-            <a href="" class="info_tinh_img_de">
-                <img src="./img/slide1.png">
-            </a>
-            <div class="info_tinh_d">
-                <h3>Tên địa danh</h3>
-                <p>Lorem ipsum, dolor sit qui q jfhdjksfjs Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam praesentium asperiores voluptatem, exercitationem adipisci laboriosam deserunt tenetur, pariatur repellendus, cum ipsa reprehenderit. Error sunt enim tempore repudiandae deserunt. Ex, exercitationem.fsjafhjk fhskufh ksnfjksh fjfhskfhjn uia.</p>
-                <a href="">Xem chi tiết</a>
-            </div>
-        </div>
-
-        <div class="info_tinh_detail">
-            <a href="" class="info_tinh_img_de">
-                <img src="./img/slide1.png">
-            </a>
-            <div class="info_tinh_d">
-                <h3>Tên địa danh</h3>
-                <p>Lorem ipsum, dolor sit qui q jfhdjksfjs Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam praesentium asperiores voluptatem, exercitationem adipisci laboriosam deserunt tenetur, pariatur repellendus, cum ipsa reprehenderit. Error sunt enim tempore repudiandae deserunt. Ex, exercitationem.fsjafhjk fhskufh ksnfjksh fjfhskfhjn uia.</p>
-                <a href="">Xem chi tiết</a>
-            </div>
-        </div>
-
-        <div class="info_tinh_detail">
-            <a href="" class="info_tinh_img_de">
-                <img src="./img/slide1.png">
-            </a>
-            <div class="info_tinh_d">
-                <h3>Tên địa danh</h3>
-                <p>Lorem ipsum, dolor sit qui q jfhdjksfjs Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam praesentium asperiores voluptatem, exercitationem adipisci laboriosam deserunt tenetur, pariatur repellendus, cum ipsa reprehenderit. Error sunt enim tempore repudiandae deserunt. Ex, exercitationem.fsjafhjk fhskufh ksnfjksh fjfhskfhjn uia.</p>
-                <a href="">Xem chi tiết</a>
-            </div>
-        </div>
-
-        <div class="info_tinh_detail">
-            <a href="" class="info_tinh_img_de">
-                <img src="./img/slide1.png">
-            </a>
-            <div class="info_tinh_d">
-                <h3>Tên địa danh</h3>
-                <p>Lorem ipsum, dolor sit qui q jfhdjksfjs Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam praesentium asperiores voluptatem, exercitationem adipisci laboriosam deserunt tenetur, pariatur repellendus, cum ipsa reprehenderit. Error sunt enim tempore repudiandae deserunt. Ex, exercitationem.fsjafhjk fhskufh ksnfjksh fjfhskfhjn uia.</p>
-                <a href="">Xem chi tiết</a>
-            </div>
-        </div>
-
-        <div class="info_tinh_detail">
-            <a href="" class="info_tinh_img_de">
-                <img src="./img/slide1.png">
-            </a>
-            <div class="info_tinh_d">
-                <h3>Tên địa danh</h3>
-                <p>Lorem ipsum, dolor sit qui q jfhdjksfjs Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam praesentium asperiores voluptatem, exercitationem adipisci laboriosam deserunt tenetur, pariatur repellendus, cum ipsa reprehenderit. Error sunt enim tempore repudiandae deserunt. Ex, exercitationem.fsjafhjk fhskufh ksnfjksh fjfhskfhjn uia.</p>
-                <a href="">Xem chi tiết</a>
-            </div>
-        </div>
-
-        <div class="info_tinh_detail">
-            <a href="" class="info_tinh_img_de">
-                <img src="./img/slide1.png">
-            </a>
-            <div class="info_tinh_d">
-                <h3>Tên địa danh</h3>
-                <p>Lorem ipsum, dolor sit qui q jfhdjksfjs Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam praesentium asperiores voluptatem, exercitationem adipisci laboriosam deserunt tenetur, pariatur repellendus, cum ipsa reprehenderit. Error sunt enim tempore repudiandae deserunt. Ex, exercitationem.fsjafhjk fhskufh ksnfjksh fjfhskfhjn uia.</p>
-                <a href="">Xem chi tiết</a>
-            </div>
-        </div>
-
-        <div class="info_tinh_detail">
-            <a href="" class="info_tinh_img_de">
-                <img src="./img/slide1.png">
-            </a>
-            <div class="info_tinh_d">
-                <h3>Tên địa danh</h3>
-                <p>Lorem ipsum, dolor sit qui q jfhdjksfjs Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam praesentium asperiores voluptatem, exercitationem adipisci laboriosam deserunt tenetur, pariatur repellendus, cum ipsa reprehenderit. Error sunt enim tempore repudiandae deserunt. Ex, exercitationem.fsjafhjk fhskufh ksnfjksh fjfhskfhjn uia.</p>
-                <a href="">Xem chi tiết</a>
-            </div>
-        </div>
-
-        <div class="info_tinh_detail">
-            <a href="" class="info_tinh_img_de">
-                <img src="./img/slide1.png">
-            </a>
-            <div class="info_tinh_d">
-                <h3>Tên địa danh</h3>
-                <p>Lorem ipsum, dolor sit qui q jfhdjksfjs Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam praesentium asperiores voluptatem, exercitationem adipisci laboriosam deserunt tenetur, pariatur repellendus, cum ipsa reprehenderit. Error sunt enim tempore repudiandae deserunt. Ex, exercitationem.fsjafhjk fhskufh ksnfjksh fjfhskfhjn uia.</p>
-                <a href="">Xem chi tiết</a>
-            </div>
-        </div>
+       
+       <?php
+       if ($baiviet_list && $baiviet_list->num_rows > 0) {
+           while ($bv_row = $baiviet_list->fetch_assoc()) {
+               $anh_avt_bv_path = 'admin/uploads/' . $bv_row['anh_avt_bv']; 
+       ?>
+               <div class="info_tinh_detail">
+                   <a href="" class="info_tinh_img_de">
+                       <img src="<?php echo $anh_avt_bv_path; ?>" alt="Ảnh đại diện">
+                   </a>
+                   <div class="info_tinh_d">
+                       <h3><?php echo $bv_row['tieu_de']; ?></h3>
+                       <p style="overflow: hidden;" ><?php echo $bv_row['mo_ta_ngan']; ?></p>
+                       <a href="baiviet.php?id_baiviet=<?php echo $bv_row['id_baiviet']; ?>">Xem chi tiết</a>
+                   </div>
+               </div>
+       <?php
+           }
+       } else {
+           echo "Không có bài viết nào.";
+       }
+       ?>
+       
+       
+       
     </div>
-    <button style="margin-bottom:10px ;" class="more">Xem thêm</button>
+</div>
+<button style="margin-bottom:10px ;" class="more">Xem thêm</button>
 </div>
 
 <?php
