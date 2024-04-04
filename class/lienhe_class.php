@@ -1,11 +1,8 @@
 <?php
-require_once('../admin/database.php');
-?>
-<?php
-class lienhe
-{
+include 'admin/database.php';
+
+class lienhe_class{
     private $db;
-    // Constructor để khởi tạo đối tượng kết nối
     public function __construct()
     {
         $this->db = new Database();

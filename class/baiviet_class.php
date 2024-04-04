@@ -1,5 +1,5 @@
 <?php
-include "database.php";
+include 'admin/database.php';
 ?>
 <?php
 class baiviet

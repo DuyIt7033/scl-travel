@@ -2,11 +2,24 @@
 include "header.php";
 include "class/lienhe_class.php";
 
-$lienhe = new lienhe();
+
+$lienhe = new lienhe_class();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
+    // Gửi thông tin đến cơ sở dữ liệu hoặc xử lý thông tin
     $insert_lh = $lienhe->insert_lh($_POST);
+
+    // // Lấy thông tin email từ biểu mẫu
+    // $email = $_POST['emaillh'];
+
+    // // Gửi email cảm ơn
+    // $to = $email;
+    // $subject = "From SCL-travel";
+    // $message = "Cảm ơn bạn đã liên hệ với chúng tôi. Chúng tôi sẽ xem xét thông tin và sẽ liên hệ lại với bạn sớm nhất có thể.";
+    // $headers = "From: duynhut75@gmail.com"; // Thay đổi your_email@example.com thành địa chỉ email của bạn
+
+    // // Sử dụng hàm mail() để gửi email
+    // mail($to, $subject, $message, $headers);
 }
 
 
@@ -81,5 +94,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!-- footer-->
 <?php
 include "footer.php";
-
 ?>
