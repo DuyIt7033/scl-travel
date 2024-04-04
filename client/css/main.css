@@ -345,17 +345,13 @@ a{
 /* End slider2 */
 /* Thong tin  */
 .info_tralvel{
-	background-size: cover;
-	background-image: url('/img/good_about.png'); /* Đường dẫn đến ảnh a.png */
-	background-position: center; /* Căn giữa ảnh */
-    background-repeat: no-repeat; 
 	margin-top: 100px;
 	position: relative;
-	align-items: center;
-	justify-content: space-evenly;
 	text-align: center;
 	width: 100%;
-	height: 100%;
+	height: auto;
+	overflow: hidden;
+	display: block;
 }
 .info_head{
 	padding-bottom: 20px;
@@ -368,10 +364,8 @@ a{
 	border: none;
 }
 .info_body {
-	/* background:linear-gradient(to right,rgba(229, 255, 0,0.2),rgba(0, 221, 255, 0.2)); */
     display: flex;
     flex-wrap: wrap;
-	border-radius: 10px;
 	justify-content: space-evenly;
 }
 
@@ -991,6 +985,7 @@ strong{
 	object-fit: cover;
 }
 .a_i_title h1{
+	text-shadow: 0em 0em 0em #f5a419, 0.08em 0.08em 0em #77664a;
 	color: var(--or-ye);
 	position: absolute;
 	font-size: 36px;
@@ -1259,7 +1254,7 @@ strong{
 	overflow: hidden;
 }
 .map iframe{
-	height: 250px;
+	height: 350px;
 	width: 100%;
 }
 /* End Liên hệ */

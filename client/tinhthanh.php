@@ -1,8 +1,8 @@
 <?php
 include "header.php";
 
-$id_tinh = $_GET['id_tinh']; // hoặc bất kỳ cách nào để lấy giá trị id_tinh từ URL hoặc nơi khác
-$tinhthanh = new tinhthanh();
+$id_tinh = $_GET['id_tinh']; 
+$tinhthanh = new tinhthanh;
 $tinh_info = $tinhthanh->get_tinhthanh($id_tinh);
 
 

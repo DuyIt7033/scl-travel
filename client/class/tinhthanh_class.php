@@ -1,5 +1,5 @@
 <?php
-include "lib/database.php"
+include "database.php";
 ?>
 <?php
 class tinhthanh{

@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header("Location: update_tinhthanh.php?id_tinh=$id_tinh&success=1");
         exit();
     } else {
-        $message = "Cập nhật ảnh thất bại!";
+        $message = "Cập nhật thất bại!";
     }
 }
 
@@ -54,7 +54,7 @@ if ($get_tinhthanh) {
         <div class="cont_add">
             <div class="ten">
                 <p>Tên tỉnh:</p>
-                <input type="text" name="Ten_tinh" autofocus value="<?php echo isset($result['Ten_tinh']) ? $result['Ten_tinh'] : ''; ?>">
+                <input type="text" name="Ten_tinh" autofocus required value="<?php echo isset($result['Ten_tinh']) ? $result['Ten_tinh'] : ''; ?>">
             </div>
             <div class="img_t">
                 <p>Ảnh đại diện :</p>

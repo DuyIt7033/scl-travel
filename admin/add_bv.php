@@ -1,5 +1,8 @@
 
 <?php
+include "header_admin.php";
+include "slider_menu.php";
+include "class/baiviet_class.php";
 $baiviet= new baiviet;
 
 $show_tinhthanh = $baiviet -> show_tinhthanh();
