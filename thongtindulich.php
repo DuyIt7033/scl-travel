@@ -1,9 +1,10 @@
 <?php
-include "header.php";
+include "header.php"; 
 include "class/baiviet_class.php";
 
 $baiviet = new baiviet;
-$baiviet_list = $baiviet->show_bv(); 
+
+$baiviet_list = $baiviet->show_bv_limit(4, 0); // Sử dụng hàm show_bv_limit với limit = 4 và offset = 0
 
 ?>
 
@@ -31,6 +32,7 @@ $baiviet_list = $baiviet->show_bv();
                </div>
        <?php
            }
+           
        } else {
            echo "Không có bài viết nào.";
        }
@@ -39,7 +41,30 @@ $baiviet_list = $baiviet->show_bv();
     </div>
     <button style="margin-bottom:10px ;" class="more">Xem thêm</button>
 </div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var moreButton = document.querySelector(".more");
+    var infoTinhCont = document.querySelector(".info_tinh_cont");
+    var offset = 4;
 
+    moreButton.addEventListener("click", function() {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "load_more.php?offset=" + offset, true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                var response = xhr.responseText;
+                if (response.trim() === "") {
+                    moreButton.style.display = "none";
+                } else {
+                    infoTinhCont.innerHTML += response;
+                    offset += 2;
+                }
+            }
+        };
+        xhr.send();
+    });
+});
+</script>
 <?php
-include "footer.php";
+include "footer.php"; 
 ?>

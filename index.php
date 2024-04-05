@@ -1,6 +1,14 @@
 <?php
 include "header.php";
 include "class/baiviet_class.php";
+include "class/lienhe_class.php";
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $lienhe = new lienhe_class();
+    $lienhe->insert_lh_one($_POST);
+    
+}
 
 
 $baiviet = new baiviet;

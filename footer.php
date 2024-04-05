@@ -1,5 +1,5 @@
- <!-- footer-->
- <footer id="footer">
+  <!-- footer-->
+  <footer id="footer">
         <div class="back-to-top" onclick="scrollToTop()">↑</div>
     <!-- Contai6 -->
     <div class="tieuchi">
@@ -15,9 +15,9 @@
             <h3>Đăng kí để nhận thông tin mới nhất. </h3>
             <div class="register_mail">
                 
-                <form action="/submit" method="post">
+                <form method="post">
                     <i class="fa-regular fa-envelope"></i>
-                    <input type="email" id="email" name="email" required placeholder="register12@xyz.com">
+                    <input type="email" id="email" name="email_cl" required placeholder="register12@xyz.com">
                     <input type="submit" value="Gửi ngay">
                 </form>
             </div>
@@ -84,4 +84,3 @@
 <script src="./js/main.js"></script>
 <!-- Font-icon -->
 <script src="https://kit.fontawesome.com/db1c5ba3fb.js" crossorigin="anonymous"></script>
-</html>

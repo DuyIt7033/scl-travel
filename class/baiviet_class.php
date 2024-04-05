@@ -51,6 +51,13 @@ class baiviet
         $result = $this->db->select($query);
         return $result;
     }
+    public function show_bv_limit($limit, $offset)
+{
+    $query = "SELECT * FROM baiviet LIMIT $limit OFFSET $offset";
+    $result = $this->db->select($query);
+    return $result;
+}
+
     public function show_tinhthanh()
     {
         $query = "SELECT * FROM tinh";

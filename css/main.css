@@ -367,14 +367,15 @@ a{
     display: flex;
     flex-wrap: wrap;
 	justify-content: space-evenly;
+	margin: 0 50px;
 }
 
 .detail {
-	width: 350px;
-	height: 300px;
+	width: 300px;
+	height: 320px;
 	display: flex;
-    margin: 50px 2px; /* Tạo khoảng cách giữa các phần tử */
-    box-sizing: border-box; /* Đảm bảo kích thước tính cả padding và border */
+    margin: 20px 2px; 
+    box-sizing: border-box; 
 	flex-direction: column;
 	border-radius: 10px;
 	border: none;
@@ -384,14 +385,15 @@ a{
 .img_de {
 	padding: 5px 5px 0 5px;
 	border-radius: 10px 10px 0 0;
-	height: 250px;
+	min-height: 200px;
+	max-height: 200px;
     width: auto;
     overflow: hidden;
 }
 
 .img_de img {
 	width:auto;
-    height: 250px;
+    height: 100%;
 	border-radius: 10px 10px 0 0;
 	border: none;
 	overflow: hidden;
@@ -402,13 +404,13 @@ a{
 
 }
 .info_img_d h3{
+	font-size: 14px;
 	margin-left: 5px;
 }
 .info_img_d {
 	text-align: left;
-	bottom: 0;
-	height: 100px;
-	width: 350px;
+	width: 100%;
+	height: auto;
 	background-color: #ffffff;
 	border-radius:  0 0 10px 10px;
 	display: inline-block;
@@ -969,8 +971,11 @@ strong{
 .register_contactForm form button{
 	left: 200px;
 }
+.info_tinh_cont{
+	margin-left: 0;
 }
-/* End Media cho điện thoại */
+}
+/* End Media cho điện thoại , phone, dt*/
 
 /* Trang Giới thiệu chung  */
 .a_i_title{
@@ -1108,8 +1113,9 @@ strong{
 	position: relative;
 	align-items: center;
 	display: flex;
-	justify-content: space-evenly;
+	justify-content: flex-start;
 	flex-wrap: wrap;
+	margin-left: 100px;
 }
 .info_tinh_detail{
 	display: inline-block;
