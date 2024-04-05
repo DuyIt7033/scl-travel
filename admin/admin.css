@@ -76,9 +76,13 @@ details>p > a:hover {
 	left: 300px;
 	width: 80%;
 }
+.them_tt{
+	height: 1000px;
+}
 .them_tt>form{
 	display: flex;
 	flex-direction: column;
+	
 }
 .cont_add{
 	display: flex;

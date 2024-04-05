@@ -63,7 +63,15 @@ class baiviet
         $result = $this->db->select($query);
         return $result;
     }
+    public function get_bv_loai_baiviet($loai_baiviet) {
 
+        $query = "SELECT * FROM baiviet 
+                  INNER JOIN loai_bv ON baiviet.id_loai = loai_bv.id_loai 
+                  WHERE loai_bv.loai_baiviet = '$loai_baiviet'";
+    
+        $result = $this->db->select($query);
+        return $result;
+    }
     public function get_bv($id_baiviet)
     {
         $query = "SELECT * FROM baiviet WHERE id_baiviet = '$id_baiviet'";

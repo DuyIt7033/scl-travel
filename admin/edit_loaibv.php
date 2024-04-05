@@ -44,14 +44,20 @@ if ($get_loaibv) {
         <div class="cont_add">
             <div class="ten">
                 <p>Tên loại bài viết:</p>
-                <input type="text" name="ten_loai" autofocus value="<?php echo isset($result['ten_loai']) ? $result['ten_loai'] : ''; ?>">
                  <!-- Hiển thị giá trị cũ của ten_loai -->
+                 <select class="add_lbv" name="ten_loai" required>
+                    <option value="">Chọn loại bài viết</option>
+                    <option value="Dl" <?php if(isset($result['loai_baiviet']) && $result['loai_baiviet'] == 'summany') echo 'selected'; ?>>Địa điểm du lịch</option>
+                    <option value="At" <?php if(isset($result['loai_baiviet']) && $result['loai_baiviet'] == 'detail') echo 'selected'; ?>>Ẩm thực</option>
+                    <option value="lh" <?php if(isset($result['loai_baiviet']) && $result['loai_baiviet'] == 'detail') echo 'selected'; ?>>Văn hóa lễ hội</option>
+                </select>
             </div>
             <div class="loai_baiviet">
                 <p>Loại bài viết:</p>
                 <select name="loai_baiviet" required>
-                    <option value="tổng hợp" <?php if(isset($result['loai_baiviet']) && $result['loai_baiviet'] == 'tổng hợp') echo 'selected'; ?>>Tổng hợp</option>
-                    <option value="chi tiết" <?php if(isset($result['loai_baiviet']) && $result['loai_baiviet'] == 'chi tiết') echo 'selected'; ?>>Chi tiết</option>
+                    <option value="">Chọn loại bài viết</option>
+                    <option value="summany" <?php if(isset($result['loai_baiviet']) && $result['loai_baiviet'] == 'summany') echo 'selected'; ?>>Tổng hợp</option>
+                    <option value="detail" <?php if(isset($result['loai_baiviet']) && $result['loai_baiviet'] == 'detail') echo 'selected'; ?>>Chi tiết</option>
                 </select>
             </div>
         </div>

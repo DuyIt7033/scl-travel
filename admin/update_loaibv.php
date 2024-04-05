@@ -43,7 +43,7 @@ $show_loaibv = $loaibv->show_loaibv();
         var result = confirm("Bạn có chắc muốn xóa?");
         if (result) {
             // Nếu người dùng chọn "OK"
-            window.location.href = "./delete_bv.php?id_loai=" + id;
+            window.location.href = "./delete_loaibv.php?id_loai=" + id;
         } else {
             // Nếu người dùng chọn "Cancel"
             return false;

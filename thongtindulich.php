@@ -3,7 +3,7 @@ include "header.php";
 include "class/baiviet_class.php";
 
 $baiviet = new baiviet;
-$baiviet_list = $baiviet->show_bv(); // Không cần truyền bất kỳ điều kiện nào vào đây
+$baiviet_list = $baiviet->show_bv(); 
 
 ?>
 

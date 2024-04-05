@@ -1,5 +1,28 @@
 <?php
 include "header.php";
+include "class/baiviet_class.php";
+
+
+$baiviet = new baiviet;
+
+$loai_baiviet_tonghop = "Summary";
+$loai_baiviet_chitiet = "detail";
+
+$get_bv_loai_bvth = $baiviet->get_bv_loai_baiviet($loai_baiviet_tonghop);
+$get_bv_loai_bvct = $baiviet->get_bv_loai_baiviet($loai_baiviet_chitiet);
+
+$bv_arrayth = array();
+if ($get_bv_loai_bvth && $get_bv_loai_bvth->num_rows > 0) {
+    while ($bv_rowth = $get_bv_loai_bvth->fetch_assoc()) {
+        $bv_arrayth[] = $bv_rowth;
+    }
+}
+$bv_arrayct = array();
+if ($get_bv_loai_bvct && $get_bv_loai_bvct->num_rows > 0) {
+    while ($bv_rowct = $get_bv_loai_bvct->fetch_assoc()) {
+        $bv_arrayct[] = $bv_rowct;
+    }
+}
 ?>
 <!-- contai1 -->
 <section id="slider">
@@ -93,96 +116,32 @@ include "header.php";
         <h2>Tổng hợp cẩm nang du lịch</h2>
     </div>
     <div class="info_body">
-        <div class="detail">
-            <a href="" class="img_de">
-                <img src="./img/slider2_2.jpg">
-            </a>
-            <div class="info_img_d">
-                <h3>Tên địa danh</h3>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed magni odit placeat culpa fuga labore saepe perferendis enim nobis cumque! Laboriosam, fugit ab. Illo veritatis modi laudantium, voluptate qui quia.</p>
-                <a href="">Xem chi tiết</a>
-            </div>
-        </div>
+        <?php
+        if (is_array($bv_arrayth) && !empty($bv_arrayth)) {
+            $count = 0; // Biến đếm số bài viết đã hiển thị
+            foreach ($bv_arrayth as $bv_rowth) {
+                if ($count >= 4) break;
+                $anh_avt_bv_path = 'admin/uploads/' . $bv_rowth['anh_avt_bv'];
+        ?>
+                <div class="detail">
+                    <a href="baiviet.php?id_baiviet=<?php echo $bv_rowth['id_baiviet']; ?>" class="img_de">
+                        <img src="<?php echo $anh_avt_bv_path; ?>">
+                    </a>
+                    <div class="info_img_d">
+                        <h3><?php echo $bv_rowth['tieu_de']; ?></h3>
+                        <p style="overflow: hidden;"><?php echo $bv_rowth['mo_ta_ngan']; ?></p>
+                        <a href="baiviet.php?id_baiviet=<?php echo $bv_rowth['id_baiviet']; ?>">Xem chi tiết</a>
+                    </div>
+                </div>
+        <?php
+                $count++; // Tăng biến đếm
+            }
+        }
+        ?>
 
-        <div class="detail">
-            <a href="baiviet.html" class="img_de">
-                <img src="./img/slider2_2.jpg">
-            </a>
-            <div class="info_img_d">
-                <h3>Tên địa drsdgdgd danh</h3>
-                <a href="">Xem chi tiết</a>
-            </div>
-        </div>
-
-        <div class="detail">
-            <a href="baiviet.html" class="img_de">
-                <img src="./img/slider2_2.jpg">
-            </a>
-            <div class="info_img_d">
-                <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
-                <a href="">Xem chi tiết</a>
-            </div>
-        </div>
-        <div class="detail">
-            <a href="baiviet.html" class="img_de">
-                <img src="./img/slider2_2.jpg">
-            </a>
-            <div class="info_img_d">
-                <h3>Tên địa drsdgdgd danh</h3>
-                <a href="">Xem chi tiết</a>
-            </div>
-        </div>
-
-        <div class="detail">
-            <a href="baiviet.html" class="img_de">
-                <img src="./img/slider2_2.jpg">
-            </a>
-            <div class="info_img_d">
-                <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
-                <a href="">Xem chi tiết</a>
-            </div>
-        </div>
-        <div class="detail">
-            <a href="baiviet.html" class="img_de">
-                <img src="./img/slider2_2.jpg">
-            </a>
-            <div class="info_img_d">
-                <h3>Tên địa drsdgdgd danh</h3>
-                <a href="">Xem chi tiết</a>
-            </div>
-        </div>
-
-        <div class="detail">
-            <a href="baiviet.html" class="img_de">
-                <img src="./img/slider2_2.jpg">
-            </a>
-            <div class="info_img_d">
-                <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
-                <a href="">Xem chi tiết</a>
-            </div>
-        </div>
-        <div class="detail">
-            <a href="baiviet.html" class="img_de">
-                <img src="./img/slider2_2.jpg">
-            </a>
-            <div class="info_img_d">
-                <h3>Tên địa drsdgdgd danh</h3>
-                <a href="">Xem chi tiết</a>
-            </div>
-        </div>
-
-        <div class="detail">
-            <a href="baiviet.html" class="img_de">
-                <img src="./img/slider2_2.jpg">
-            </a>
-            <div class="info_img_d">
-                <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
-                <a href="">Xem chi tiết</a>
-            </div>
-        </div>
     </div>
     <div class="see_all">
-        <a href="">Xem tất cả <i class="fa-solid fa-angles-right"></i></a>
+        <a href="thongtindulich.php">Xem tất cả <i class="fa-solid fa-angles-right"></i></a>
     </div>
 
 </div>
@@ -198,7 +157,7 @@ include "header.php";
     <div class="title_re_row">
         <h3>Bài viết đánh giá </h3>
         <hr>
-        <a href="#"> Xem tất cả <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="thongtindulich.php"> Xem tất cả <i class="fa-solid fa-arrow-right"></i></a>
     </div>
     <div class="body_re">
         <div class="body_re_info">
@@ -206,41 +165,26 @@ include "header.php";
             <p>Chúc bạn tìm được nhiều niềm vui</p>
         </div>
         <div class="body_re_details">
-            <div class="body_re_details_cont">
-                <a href="#"><img src="./img/slider2_2.png" alt=""></a>
-                <h2>Title</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipis</p>
-            </div>
-            <div class="body_re_details_cont">
-                <a href="#"><img src="./img/slider2_2.png" alt=""></a>
-                <h2>Title</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipis</p>
-            </div>
-            <div class="body_re_details_cont">
-                <a href="#"><img src="./img/slider2_2.png" alt=""></a>
-                <h2>Title</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipis</p>
-            </div>
-            <div class="body_re_details_cont">
-                <a href="#"><img src="./img/slider2_2.png" alt=""></a>
-                <h2>Title</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipis</p>
-            </div>
-            <div class="body_re_details_cont">
-                <a href="#"><img src="./img/slider2_2.png" alt=""></a>
-                <h2>Title</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipis</p>
-            </div>
-            <div class="body_re_details_cont">
-                <a href="#"><img src="./img/slider2_2.png" alt=""></a>
-                <h2>Title</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipis</p>
-            </div>
-            <div class="body_re_details_cont">
-                <a href="#"><img src="./img/slider2_2.png" alt=""></a>
-                <h2>Title</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipis</p>
-            </div>
+            <?php
+            if (is_array($bv_arrayct) && !empty($bv_arrayct)) {
+                $count = 0; // Biến đếm số bài viết đã hiển thị
+                foreach ($bv_arrayct as $bv_rowct) {
+                    if ($count >= 8) break; 
+                    $anh_avt_bv_path = 'admin/uploads/' . $bv_rowct['anh_avt_bv'];
+            ?>
+                    <div class="body_re_details_cont">
+                        <a href="baiviet.php?id_baiviet=<?php echo $bv_rowct['id_baiviet']; ?>" >
+                            <img src="<?php echo $anh_avt_bv_path; ?>">
+                        </a>
+                            <h2><?php echo $bv_rowct['tieu_de']; ?></h2>
+                            <p ><?php echo $bv_rowct['mo_ta_ngan']; ?></p>
+                        
+                    </div>
+            <?php
+                    $count++; // Tăng biến đếm
+                }
+            }
+            ?>
             <div class="body_re_details_cont">
                 <a href="#"><img src="./img/slider2_2.png" alt=""></a>
                 <h2>Title</h2>

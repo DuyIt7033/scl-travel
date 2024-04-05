@@ -9,17 +9,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Gửi thông tin đến cơ sở dữ liệu hoặc xử lý thông tin
     $insert_lh = $lienhe->insert_lh($_POST);
 
-    // // Lấy thông tin email từ biểu mẫu
-    // $email = $_POST['emaillh'];
-
-    // // Gửi email cảm ơn
-    // $to = $email;
-    // $subject = "From SCL-travel";
-    // $message = "Cảm ơn bạn đã liên hệ với chúng tôi. Chúng tôi sẽ xem xét thông tin và sẽ liên hệ lại với bạn sớm nhất có thể.";
-    // $headers = "From: duynhut75@gmail.com"; // Thay đổi your_email@example.com thành địa chỉ email của bạn
-
-    // // Sử dụng hàm mail() để gửi email
-    // mail($to, $subject, $message, $headers);
+    if ($insert_lh) {
+        echo "<script>alert('Thành công!'); window.location.href = 'lienhe.php?success=1';</script>";
+    } else {
+        echo "<script>alert('Thất bại!'); window.location.href = 'lienhe.php';</script>";
+    }
 }
 
 
@@ -36,8 +30,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         Góp phần thúc đẩy ngành du lịch ĐBSCL phát triển.
 
 
-        <br><br><strong style="font-size: 14px; color:#FAA719;">Bạn muốn giới thiệu dịch vụ của mình đến người dùng? <br>
-            Hãy điền thông tin vào form đăng ký bên dưới để trở thành đối tác của <strong style="color: #00B6BE;" >SCL-travel</strong> ngay hôm nay.</strong> </n>
+        <br><br><strong style="font-size: 14px; color:#FAA719;">Bạn muốn giới thiệu dịch vụ hay cơ sở của mình đến người dùng? <br>
+            Hãy điền thông tin vào form đăng ký bên dưới để trở thành đối tác của <strong style="color: #00B6BE;">SCL-travel</strong> ngay hôm nay.</strong> </n>
     </p>
 
 </div>

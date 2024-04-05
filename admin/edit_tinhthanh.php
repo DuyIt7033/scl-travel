@@ -63,7 +63,7 @@ if ($get_tinhthanh) {
             
         </div>
         <div class="mota_tinh" >
-            <textarea name="Mo_ta" cols="100" rows="10" placeholder="Mô tả về tỉnh"></textarea>
+            <textarea name="Mo_ta" cols="100" rows="40" placeholder="Mô tả về tỉnh"></textarea>
         </div>
         <div class="add_ttbtn">
             <button type="submit">

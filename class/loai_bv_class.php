@@ -29,6 +29,8 @@ class loaibv {
         $result = $this ->db->select($query);
         return $result;
     }
+    
+    
 
     public function update_loaibv($ten_loai, $loai_baiviet, $id_loai) {
         // Khởi tạo một mảng để lưu các thông tin cần cập nhật
