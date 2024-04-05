@@ -1291,6 +1291,7 @@ strong{
 .tt_h_ndc{
 	justify-content: space-between;
 	display: flex;
+	
 	font-size: 12px;
 	background-color: #d6d5a2;
 	/* background: linear-gradient(to right, #473217, rgb(252, 255, 152)); */
@@ -1299,28 +1300,22 @@ strong{
 	border-radius: 15px;
 	overflow: hidden;
 }
-.baiviet_rate,.baiviet_tinh,.baiviet_time{
+.baiviet_tinh,.baiviet_time{
 	margin: 0;
 	flex: 1;
 	align-items: center;
 	text-align: center;
-	padding: 10px 0;
+	padding: 2px 0;
 }
 .baiviet_time{
-	color: rgb(99, 74, 36);
-	border-radius:360px  0 0 0;
-	background-color: #beb80074;
+	color: rgb(255, 255, 255);
+	border-radius:  0 0 0 360px;
+	background-color: #413f0074;
 }
 .baiviet_tinh{
 	color: rgb(99, 74, 36);
 	border-radius:0 360px 0 0 ;
 	background-color: #beb80074;
-}
-.baiviet_rate{
-	border-radius: 0 0 360px 360px;
-	background-color: #000000a2;
-	font-weight: bold;
-	color: rgb(9, 255, 0);
 }
 .main_ndc{
 	position: relative;
@@ -1356,7 +1351,7 @@ strong{
 	overflow: hidden;
 	border-radius: 10px;
 	height: 80px;
-	width: auto;
+	width: 140px;
 }
 .contai_g_y img:hover{
 	

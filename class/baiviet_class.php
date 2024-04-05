@@ -129,6 +129,22 @@ class baiviet
         return $result;
     }
 
+    public function get_tinh_id_from_baiviet_id($id_baiviet)
+{
+    $query = "SELECT tinh.id_tinh 
+              FROM baiviet 
+              INNER JOIN tinh ON baiviet.id_tinh = tinh.id_tinh 
+              WHERE baiviet.id_baiviet = '$id_baiviet'";
+
+    $result = $this->db->select($query);
+    if ($result) {
+        $row = $result->fetch_assoc();
+        return $row['id_tinh'];
+    } else {
+        return null; // hoặc thực hiện xử lý khác tùy vào yêu cầu của bạn
+    }
+}
+
 
 
 

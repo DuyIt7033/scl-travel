@@ -33,15 +33,6 @@ $baiviet_list = $baiviet->get_baiviet_by_tinh($id_tinh);
 
 ?>
 
-
-
-
-<!-- <img src="./img/Test.png" >
-        <h1>Cần Thơ</h1>
-    </div>
-    <div class="info_tinh_about">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum rerum, nam nulla voluptatum tempora corrupti, non distinctio nesciunt possimus quisquam sunt sed quas dolor? Laudantium beatae doloremque nulla expedita officiis. Lorem ipsum, dolor sit amet consectetur adipisicing elit. A, sed dicta, error ipsum tempore debitis explicabo in harum consequatur adipisci voluptatum deleniti. Dolorum architecto nostrum temporibus officiis corporis accusamus voluptates. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos deserunt laborum fugiat, rerum quisquam sunt voluptatibus nobis natus eos architecto, distinctio corrupti dolores ratione tenetur vitae reiciendis similique inventore cumque! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora sapiente eaque voluptates animi maxime exercitationem magnam in minus dignissimos ipsum dolor fugiat facere nesciunt, minima doloremque delectus aspernatur. Eaque, officiis.</p>
-    </div> -->
 <div class="info_tinh">
     <div class="info_tinh_title">
         <h2>Cẩm nang du lịch tỉnh <?php echo $row['Ten_tinh']; ?></h2>
