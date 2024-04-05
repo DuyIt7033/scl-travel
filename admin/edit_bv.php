@@ -29,7 +29,7 @@ $message = "";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Thực hiện cập nhật bài viết
-    $update_bv = $baiviet->update_bv($_POST['tieu_de'], $_POST['id_tinh'], $_POST['id_loai'], $_POST['noidung'], $_FILES['anh_avt_bv']['name'], $_POST['publish_date'], $id_baiviet);
+    $update_bv = $baiviet->update_bv($_POST['tieu_de'], $_POST['id_tinh'], $_POST['id_loai'], $_POST['noidung'], $_FILES['anh_avt_bv']['name'], $_POST['publish_date'], $id_baiviet,$_POST['map']);
 
     if ($update_bv) {
         // Chuyển hướng sau khi cập nhật thành công
@@ -59,12 +59,12 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
                     <img src="uploads/<?php echo $bv_info['anh_avt_bv']; ?>" alt="Ảnh đại diện" style="width: auto; height: 100px;">
                 <?php endif; ?>
 
-                <p>Ảnh mô tả :</p>
-                <input type="file" name="anh_baiviet[]" accept="image/*" multiple>
+                <!-- <p>Ảnh mô tả :</p>
+                <input type="file" name="anh_baiviet[]" accept="image/*" multiple> -->
             </div>
 
             <input class="tieu_de" placeholder="Tiêu đề bài viết" type="text" id="title" name="tieu_de" value="<?php echo $bv_info['tieu_de']; ?>"><br>
-
+            <textarea class="map" placeholder="iframe bản đồ" name="map" rows="3" cols="80" ></textarea>
             <textarea id="editor1" placeholder="Nội dung bài viết" name="noidung" rows="20" cols="80"><?php echo $bv_info['noidung']; ?></textarea><br>
 
         </div>

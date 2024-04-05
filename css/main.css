@@ -1280,9 +1280,10 @@ strong{
 }
 .noidung_chinh{
 	position: relative;
-	flex: 7;
 	margin: 5px;
 	align-items: center;
+	max-width: 70%;
+	overflow: hidden;
 }
 .head_ndc{
 	position: relative;
@@ -1321,11 +1322,14 @@ strong{
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	text-align: start;
 	font-size: 14px;
 }
 
-
+.mapbv iframe{
+	width: 100%;
+	height: 350px;
+}
 .main_ndc img{
 	width: auto;
 	height: 500px;
@@ -1333,7 +1337,6 @@ strong{
 .goi_y{
 	font-size: 12px;
 	margin-top: 20px;
-	flex: 3;
     display: flex;
     flex-direction: column;
 }

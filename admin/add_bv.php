@@ -38,11 +38,12 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
                 <p>Ảnh đại diện:</p>
                 <input type="file" name="anh_avt_bv" accept="image/*" required>
 
-                <p>Ảnh mô tả :</p>
-                <input type="file" name="anh_baiviet[]" accept="image/*" multiple>
+                <!-- <p>Ảnh mô tả :</p>
+                <input type="file" name="anh_baiviet[]" accept="image/*" multiple> -->
             </div>
 
             <input class="tieu_de" placeholder="Tiêu đề bài viết" type="text" id="title" name="tieu_de" required><br>
+            <textarea class="map" placeholder="iframe bản đồ" name="map" rows="3" cols="80" ></textarea>
             <textarea class="mota_ngan" placeholder="Mô tả ngắn" name="mo_ta_ngan" rows="3" cols="80"  required></textarea>
             <br>
 

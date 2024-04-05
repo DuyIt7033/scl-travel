@@ -20,11 +20,12 @@ class baiviet
         $mo_ta_ngan = $_POST['mo_ta_ngan'];
         $anh_avt_bv = $_FILES['anh_avt_bv']['name'];
         $publish_date = $_POST['publish_date'];
+        $map = $_POST['map'];
 
         move_uploaded_file($_FILES['anh_avt_bv']['tmp_name'], "uploads/" . $_FILES['anh_avt_bv']['name']);
 
-        $query = "INSERT INTO baiviet (tieu_de, id_tinh, id_loai, noidung, mo_ta_ngan, anh_avt_bv, publish_date)
-                  VALUES ('$tieu_de', '$id_tinh', '$id_loai', '$noidung','$mo_ta_ngan', '$anh_avt_bv', '$publish_date')";
+        $query = "INSERT INTO baiviet (tieu_de, id_tinh, id_loai, noidung, mo_ta_ngan, anh_avt_bv, publish_date,map)
+                  VALUES ('$tieu_de', '$id_tinh', '$id_loai', '$noidung','$mo_ta_ngan', '$anh_avt_bv', '$publish_date','$map')";
 
         $result = $this->db->insert($query);
 
@@ -76,7 +77,7 @@ class baiviet
         return $result;
     }
 
-    public function update_bv($tieu_de, $id_tinh, $id_loai, $noidung, $anh_avt_bv, $publish_date, $id_baiviet)
+    public function update_bv($tieu_de, $id_tinh, $id_loai, $noidung, $anh_avt_bv, $publish_date, $id_baiviet,$map)
     {
         // Khởi tạo một mảng để lưu các thông tin cần cập nhật
         $update_fields = array();
@@ -102,6 +103,9 @@ class baiviet
         }
         if (!empty($publish_date)) {
             $update_fields[] = "publish_date = '$publish_date'";
+        }
+        if (!empty($map)) {
+            $update_fields[] = "map = '$map'";
         }
     
         // Nếu không có trường nào được cập nhật, không cần thực hiện truy vấn
