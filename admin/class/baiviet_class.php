@@ -5,7 +5,6 @@ include "database.php";
 class baiviet
 {
     private $db;
-    // Constructor để khởi tạo đối tượng kết nối
     public function __construct()
     {
         $this->db = new Database();
@@ -77,12 +76,12 @@ class baiviet
         return $result;
     }
 
-    public function update_bv($tieu_de, $id_tinh, $id_loai, $noidung, $anh_avt_bv, $publish_date, $id_baiviet,$map)
+    public function update_bv($tieu_de, $id_tinh, $id_loai, $noidung, $anh_avt_bv, $publish_date, $id_baiviet, $map)
     {
-        // Khởi tạo một mảng để lưu các thông tin cần cập nhật
+
         $update_fields = array();
-    
-        // Xây dựng câu truy vấn SQL dựa trên các trường hợp
+
+
         if (!empty($tieu_de)) {
             $update_fields[] = "tieu_de = '$tieu_de'";
         }
@@ -96,9 +95,9 @@ class baiviet
             $update_fields[] = "noidung = '$noidung'";
         }
         if (!empty($anh_avt_bv)) {
-            // Lưu ảnh đại diện mới vào thư mục
+
             move_uploaded_file($_FILES['anh_avt_bv']['tmp_name'], "uploads/" . $anh_avt_bv);
-            // Cập nhật tên ảnh mới trong cơ sở dữ liệu
+
             $update_fields[] = "anh_avt_bv = '$anh_avt_bv'";
         }
         if (!empty($publish_date)) {
@@ -107,22 +106,21 @@ class baiviet
         if (!empty($map)) {
             $update_fields[] = "map = '$map'";
         }
-    
-        // Nếu không có trường nào được cập nhật, không cần thực hiện truy vấn
+
+
         if (empty($update_fields)) {
-            return false; // Trả về false để báo hiệu rằng không có gì cần cập nhật
+            return false;
         }
-    
-        // Xây dựng câu truy vấn update
+
+
         $update_query = "UPDATE baiviet SET " . implode(", ", $update_fields) . " WHERE id_baiviet = '$id_baiviet'";
-    
-        // Thực hiện truy vấn
+
         $values = array($id_baiviet);
         $result = $this->db->update($update_query, $values);
-    
+
         return $result;
     }
-    
+
 
 
 

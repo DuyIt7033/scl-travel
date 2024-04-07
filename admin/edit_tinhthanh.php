@@ -5,16 +5,17 @@ include "class/tinhthanh_class.php";
 
 $tinhthanh = new tinhthanh;
 
+$message = "";
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $Ten_tinh = $_POST['Ten_tinh'];
-    $id_tinh = $_GET['id_tinh']; 
+    $id_tinh = $_GET['id_tinh'];
 
     // Kiểm tra xem người dùng đã chọn tệp ảnh mới hay không
     if (!empty($_FILES['anh_avt_tinh']['name'])) {
         $anh_avt_tinh_tmp = $_FILES['anh_avt_tinh']['tmp_name'];
         if (!empty($anh_avt_tinh_tmp) && file_exists($anh_avt_tinh_tmp)) {
             $anh_avt_tinh = addslashes(file_get_contents($anh_avt_tinh_tmp));
-        } else {
         }
     } else {
         // Nếu không có tệp ảnh mới được chọn, giữ nguyên ảnh đã có trong cơ sở dữ liệu
@@ -25,7 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    $update_tinhthanh = $tinhthanh->update_tinhthanh($Ten_tinh, $anh_avt_tinh, $id_tinh,$Mo_ta);
+    $Mo_ta = $_POST['Mo_ta'];
+    $update_tinhthanh = $tinhthanh->update_tinhthanh($Ten_tinh, $anh_avt_tinh, $id_tinh, $Mo_ta);
     if ($update_tinhthanh) {
         // Chuyển hướng sau khi cập nhật thành công
         header("Location: update_tinhthanh.php?id_tinh=$id_tinh&success=1");
@@ -34,7 +36,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $message = "Cập nhật thất bại!";
     }
 }
-
 
 if (!isset($_GET['id_tinh']) || empty($_GET['id_tinh'])) {
     echo "<script>window.location = 'update_tinhthanh.php'</script>"; // Chuyển hướng về trang update_tinhthanh.php nếu không có id_tinh
@@ -60,19 +61,12 @@ if ($get_tinhthanh) {
                 <p>Ảnh đại diện :</p>
                 <input type="file" name="anh_avt_tinh" accept="image/*">
             </div>
-            
         </div>
-        <div class="mota_tinh" >
-            <textarea name="Mo_ta" cols="100" rows="40" placeholder="Mô tả về tỉnh"></textarea>
+        <div class="mota_tinh">
+            <textarea name="Mo_ta" cols="100" rows="40" placeholder="Mô tả về tỉnh"><?php echo isset($result['Mo_ta']) ? $result['Mo_ta'] : ''; ?></textarea>
         </div>
         <div class="add_ttbtn">
-            <button type="submit">
-                Cập nhật
-            </button>
+            <button type="submit">Cập nhật</button>
         </div>
     </form>
 </div>
-</div>
-</body>
-
-</html>

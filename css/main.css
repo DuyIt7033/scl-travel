@@ -260,6 +260,7 @@ a{
 	height: auto;
 	width: fit-content;
 	overflow: hidden;
+	
 }
 .slider2.zoom-in {
 	transition: 0.5s;
@@ -284,6 +285,7 @@ a{
 	border: none;
 }
 .img_box_container {
+	overflow: hidden;
 	padding-top: 300px;
 	flex: 2;
 	justify-content: space-evenly;
@@ -531,7 +533,7 @@ a{
 }
 .body_re_details_cont>a>img{
 	border-radius: 15px 15px 0 0;
-	width: 100%;
+	width: auto;
 	height: 160px;
 }
 /* End Review  */

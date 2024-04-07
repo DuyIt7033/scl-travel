@@ -94,23 +94,24 @@ if ($show_tinhthanh && $show_tinhthanh->num_rows > 0) {
     </div>
     <div class="img_box_container">
         <?php
-        if (!empty($tt_array)) {
-            foreach ($tt_array as $tt_item) {
-                $id_tinh = $tt_item['id_tinh'];
-                $Ten_tinh = $tt_item['Ten_tinh'];
-                $anh_avt_tinh = $tt_item['anh_avt_tinh'];
-                $image_src = 'data:image/jpeg;base64,' . base64_encode($anh_avt_tinh); // Tạo src cho thẻ img từ dữ liệu blob
-
-                // In ra thẻ <a> và <img> cho từng dòng trong mảng
-        ?>
-                <a href="tinhthanh.php?id_tinh=<?php echo $id_tinh; ?>" class="image-box">
-                    <h2><?php echo $Ten_tinh; ?></h2>
-                    <img src="<?php echo $image_src; ?>" >
-                </a>
-        <?php
-            }
+       if (!empty($tt_array)) {
+        $count = 0; // Biến đếm số lượng phần tử đã hiển thị
+        foreach ($tt_array as $tt_item) {
+            if ($count >= 6) break; // Nếu đã hiển thị đủ 6 phần tử thì thoát khỏi vòng lặp
+            $id_tinh = $tt_item['id_tinh'];
+            $Ten_tinh = $tt_item['Ten_tinh'];
+            $anh_avt_tinh = $tt_item['anh_avt_tinh'];
+            $image_src = 'admin/' . $anh_avt_tinh; // Đường dẫn đến thư mục uploads
+            ?>
+            <a href="tinhthanh.php?id_tinh=<?php echo $id_tinh; ?>" class="image-box">
+                <h2><?php echo $Ten_tinh; ?></h2>
+                <img src="<?php echo $image_src; ?>">
+            </a>
+            <?php
+            $count++; // Tăng biến đếm
         }
-        ?>
+    }?>
+    
     </div>
 
 </div>
@@ -125,7 +126,7 @@ if ($show_tinhthanh && $show_tinhthanh->num_rows > 0) {
     <div class="info_body">
         <?php
         if (is_array($bv_arrayth) && !empty($bv_arrayth)) {
-            $count = 0; // Biến đếm số bài viết đã hiển thị
+            $count = 0; // Đếm số bài viết hiển thị
             foreach ($bv_arrayth as $bv_rowth) {
                 if ($count >= 4) break;
                 $anh_avt_bv_path = 'admin/uploads/' . $bv_rowth['anh_avt_bv'];
@@ -183,8 +184,8 @@ if ($show_tinhthanh && $show_tinhthanh->num_rows > 0) {
                         <a href="baiviet.php?id_baiviet=<?php echo $bv_rowct['id_baiviet']; ?>">
                             <img src="<?php echo $anh_avt_bv_path; ?>">
                         </a>
-                        <h2><?php echo $bv_rowct['tieu_de']; ?></h2>
-                        <p><?php echo $bv_rowct['mo_ta_ngan']; ?></p>
+                        <h2 style="white-space: nowrap;font-size: 14px;overflow: hidden; text-overflow: ellipsis;"><?php echo $bv_rowct['tieu_de']; ?></h2>
+                        <p ><?php echo $bv_rowct['mo_ta_ngan']; ?></p>
 
                     </div>
             <?php
@@ -192,11 +193,6 @@ if ($show_tinhthanh && $show_tinhthanh->num_rows > 0) {
                 }
             }
             ?>
-            <div class="body_re_details_cont">
-                <a href="#"><img src="./img/slider2_2.png" alt=""></a>
-                <h2>Title</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipis</p>
-            </div>
         </div>
     </div>
 

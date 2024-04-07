@@ -5,27 +5,44 @@ include "database.php"
 class tinhthanh
 {
     private $db;
-    // Constructor để khởi tạo đối tượng kết nối
     public function __construct()
     {
         $this->db = new Database();
     }
-
     public function insert_tinhthanh($Ten_tinh, $anh_avt_tinh, $Mo_ta)
     {
-        // Sử dụng Prepared Statements để ngăn chặn SQL injection
-        $query = "INSERT INTO tinh (Ten_tinh, anh_avt_tinh,Mo_ta) VALUES (?, ?,?)";
-        $values = array($Ten_tinh, $anh_avt_tinh, $Mo_ta);
-        $result = $this->db->insert_pro($query, $values);
-        return $result;
+        $targetDirectory = "uploads/";
+
+        $anh_avt_tinh_name = basename($anh_avt_tinh["name"]);
+
+        $targetFilePath = $targetDirectory . $anh_avt_tinh_name;
+
+        if (move_uploaded_file($anh_avt_tinh["tmp_name"], $targetFilePath)) {
+            $query = "INSERT INTO tinh (Ten_tinh, anh_avt_tinh, Mo_ta) VALUES (?, ?, ?)";
+            $values = array($Ten_tinh, $targetFilePath, $Mo_ta);
+            $result = $this->db->insert_pro($query, $values);
+
+            if ($result) {
+                return true;
+            } else {
+                // Nếu có lỗi xảy ra khi chèn dữ liệu vào cơ sở dữ liệu, xóa tệp ảnh đã tải lên
+                unlink($targetFilePath);
+                return false;
+            }
+        } else {
+            return false;
+        }
     }
 
-    public function show_tinhthanh()
-    {
-        $query = "SELECT * FROM tinh";
+
+
+
+    public function show_tinhthanh(){
+        $query = "SELECT * FROM tinh ORDER BY Ten_tinh ASC";
         $result = $this->db->select($query);
         return $result;
     }
+    
 
     public function get_tinhthanh()
     {
@@ -33,41 +50,38 @@ class tinhthanh
         $result = $this->db->select($query);
         return $result;
     }
-
-    // public function update_tinhthanh($Ten_tinh,$anh_avt_tinh, $id_tinh){
-    //     $query = "UPDATE tinh SET Ten_tinh ='$Ten_tinh' , anh_avt_tinh ='$anh_avt_tinh' WHERE id_tinh ='$id_tinh' ";
-    //     $result = $this ->db->update($query);
-    //     return $result;
-    // }
     public function update_tinhthanh($Ten_tinh, $anh_avt_tinh, $id_tinh, $Mo_ta)
     {
-        // Khởi tạo một mảng để lưu các thông tin cần cập nhật
+        
         $update_fields = array();
 
-        // Xây dựng câu truy vấn SQL dựa trên các trường hợp
+        
         if (!empty($Ten_tinh)) {
             $update_fields[] = "Ten_tinh = '$Ten_tinh'";
         }
         if (!empty($anh_avt_tinh)) {
+           
+            move_uploaded_file($_FILES['anh_avt_tinh']['tmp_name'], "uploads/" . $anh_avt_tinh);
             $update_fields[] = "anh_avt_tinh = '$anh_avt_tinh'";
         }
-        if (!is_null($Mo_ta)) { // Kiểm tra mô tả có giá trị không
+        if (!empty($Mo_ta)) {
             $update_fields[] = "Mo_ta = '$Mo_ta'";
         }
 
         // Nếu không có trường nào được cập nhật, không cần thực hiện truy vấn
         if (empty($update_fields)) {
-            return false; // Trả về false để báo hiệu rằng không có gì cần cập nhật
+            return false; 
         }
 
-        // Xây dựng câu truy vấn update
+     
         $update_query = "UPDATE tinh SET " . implode(", ", $update_fields) . " WHERE id_tinh = '$id_tinh'";
-
-        // Thực hiện truy vấn
         $result = $this->db->update($update_query);
 
         return $result;
     }
+
+
+
 
 
     public function del_tinhthanh($id_tinh)

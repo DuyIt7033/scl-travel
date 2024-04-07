@@ -18,10 +18,11 @@ class tinhthanh{
     }
 
     public function show_tinhthanh(){
-        $query = "SELECT * FROM tinh";
-        $result = $this ->db->select($query);
+        $query = "SELECT * FROM tinh ORDER BY Ten_tinh ASC"; // Sắp xếp theo tên tỉnh theo thứ tự tăng dần (A-Z)
+        $result = $this->db->select($query);
         return $result;
     }
+    
 
     public function get_tinhthanh($id_tinh){
         $query = "SELECT * FROM tinh WHERE id_tinh ='$id_tinh'";
