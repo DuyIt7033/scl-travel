@@ -3,7 +3,7 @@
         <div class="back-to-top" onclick="scrollToTop()">↑</div>
     <!-- Contai6 -->
     <div class="tieuchi">
-        <div class="tieuchi-img"><img src="./img/chi.jpg" alt=""></div>
+        <div class="tieuchi-img"><img src="./img/chi.jpg" ></div>
         <div class="thongtin-tc">
             <hr>
             <strong>Mục tiêu trở thành nền tảng du lịch số 1 miền Nam</strong>
@@ -27,7 +27,7 @@
         <div class="container_f">
             <div class="column1">
                 <div class="logo">
-                    <a href="index.html">
+                    <a href="index.php">
                         <img src="./img/logo.png" alt="logo">
                     </a>
                     <p>Cung cấp cho bạn những thông tin hữu ích về các điểm đến, dịch vụ nơi bạn quan tâm, và các vấn đề có thể hỗ trợ tốt bạn trong quá trình đi du lịch khi đến với Đồng bằng sông Cửu Long.</p>

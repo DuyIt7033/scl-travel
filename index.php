@@ -4,10 +4,10 @@ include "class/baiviet_class.php";
 include "class/lienhe_class.php";
 
 
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $lienhe = new lienhe_class();
     $lienhe->insert_lh_one($_POST);
-    
 }
 
 
@@ -31,16 +31,27 @@ if ($get_bv_loai_bvct && $get_bv_loai_bvct->num_rows > 0) {
         $bv_arrayct[] = $bv_rowct;
     }
 }
+
+$tinhthanh = new tinhthanh;
+
+$show_tinhthanh = $tinhthanh->show_tinhthanh();
+if ($show_tinhthanh && $show_tinhthanh->num_rows > 0) {
+    while ($tt_row = $show_tinhthanh->fetch_assoc()) {
+        $tt_array[] = $tt_row;
+    }
+}
+
+
 ?>
 <!-- contai1 -->
 <section id="slider">
     <div class="container_2">
         <div class="aspect-ratio-169">
-            <img src="./img/VinhLong.jpg">
-            <img src="./img/slide2.png">
-            <img src="./img/slide3.png">
-            <img src="./img/slide4.png">
-            <img src="./img/slide5.png">
+            <img src="./img/slider1.jpg">
+            <img src="./img/slider2.png">
+            <img src="./img/slider3.png">
+            <img src="./img/slider4.jpg">
+            <img src="./img/slider5.png">
         </div>
         <h2 class="welcome">Chào mừng đến với Đồng Bằng Sông Cửu Long</h2>
     </div>
@@ -82,38 +93,26 @@ if ($get_bv_loai_bvct && $get_bv_loai_bvct->num_rows > 0) {
 
     </div>
     <div class="img_box_container">
-        <a href="#" class="image-box">
-            <h2>Bến Tre</h2>
-            <img src="./img/bentre.jpg" alt="Image 1">
-        </a>
+        <?php
+        if (!empty($tt_array)) {
+            foreach ($tt_array as $tt_item) {
+                $id_tinh = $tt_item['id_tinh'];
+                $Ten_tinh = $tt_item['Ten_tinh'];
+                $anh_avt_tinh = $tt_item['anh_avt_tinh'];
+                $image_src = 'data:image/jpeg;base64,' . base64_encode($anh_avt_tinh); // Tạo src cho thẻ img từ dữ liệu blob
 
-        <a href="#" class="image-box">
-            <h2>An Giang</h2>
-            <img src="./img/angiang.jpg" alt="Image 2">
-        </a>
-
-        <a href="/baiviet.html" class="image-box">
-            <h2>Cần Thơ</h2>
-
-            <img src="./img/cantho.jpg" alt="Image 3">
-        </a>
-
-        <a href="#" class="image-box">
-            <h2>Đồng Tháp</h2>
-            <img src="./img/DongThap.jpg" alt="Image 4">
-        </a>
-
-        <a href="#" class="image-box">
-            <h2>Vĩnh Long</h2>
-            <img src="./img/VinhLong.jpg" alt="Image 5">
-        </a>
-
-        <a href="#" class="image-box">
-            <h2>Tiền Giang</h2>
-            <img src="./img/TienGiang.jpg" alt="Image 6">
-        </a>
-
+                // In ra thẻ <a> và <img> cho từng dòng trong mảng
+        ?>
+                <a href="tinhthanh.php?id_tinh=<?php echo $id_tinh; ?>" class="image-box">
+                    <h2><?php echo $Ten_tinh; ?></h2>
+                    <img src="<?php echo $image_src; ?>" >
+                </a>
+        <?php
+            }
+        }
+        ?>
     </div>
+
 </div>
 <!-- End Contai3 -->
 <!-- Contai4 -->
@@ -177,16 +176,16 @@ if ($get_bv_loai_bvct && $get_bv_loai_bvct->num_rows > 0) {
             if (is_array($bv_arrayct) && !empty($bv_arrayct)) {
                 $count = 0; // Biến đếm số bài viết đã hiển thị
                 foreach ($bv_arrayct as $bv_rowct) {
-                    if ($count >= 8) break; 
+                    if ($count >= 8) break;
                     $anh_avt_bv_path = 'admin/uploads/' . $bv_rowct['anh_avt_bv'];
             ?>
                     <div class="body_re_details_cont">
-                        <a href="baiviet.php?id_baiviet=<?php echo $bv_rowct['id_baiviet']; ?>" >
+                        <a href="baiviet.php?id_baiviet=<?php echo $bv_rowct['id_baiviet']; ?>">
                             <img src="<?php echo $anh_avt_bv_path; ?>">
                         </a>
-                            <h2><?php echo $bv_rowct['tieu_de']; ?></h2>
-                            <p ><?php echo $bv_rowct['mo_ta_ngan']; ?></p>
-                        
+                        <h2><?php echo $bv_rowct['tieu_de']; ?></h2>
+                        <p><?php echo $bv_rowct['mo_ta_ngan']; ?></p>
+
                     </div>
             <?php
                     $count++; // Tăng biến đếm

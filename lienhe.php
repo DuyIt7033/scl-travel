@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 <!-- End header -->
 <div class="a_i_title">
-    <img src="./img/bentre.jpg">
+    <img src="./img/common-banner.png">
     <h1>Liên hệ viết bài</h1>
 </div>
 <div class="info_tinh_about">

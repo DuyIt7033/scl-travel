@@ -1034,8 +1034,8 @@ strong{
 }
 .img_all img{
 	display: block;
-	max-width: 100%;
-    height: auto;
+	width: auto;
+    height: 800px;
 }
 .all_p{
 	position: relative;
@@ -1060,12 +1060,25 @@ strong{
 	align-items: center;
 	justify-content: center;
 	width: 100%;
+	overflow: hidden;
+}
+.p1 h2{
+	color: #7a6d1a;
+	padding: 0;
+	margin-bottom: 0;
 }
 .p1>div>img{
 	position: relative;
-	max-width: 100%;
-	height: 100%;
+	max-width:100%;
+	height: 500px;
 }
+
+/* .gt_scl{
+	background: linear-gradient(to right, #173947, rgb(37, 199, 1));
+	padding: 5px 10px;
+	border-radius: 20px;
+	color: rgb(255, 255, 255);
+} */
 /* Hết Trang Giới thiệu chung  */
 
 

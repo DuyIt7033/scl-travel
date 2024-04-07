@@ -46,7 +46,7 @@ $show_tinhthanh = $tinhthanh->show_tinhthanh();
                 </li>
                 <li><a href="thongtindulich.php">Thông tin du lịch</a></li>
                 <!-- <li><a href="#"></a></li> -->
-                <li><a href="gioithieu.html">Giới thiệu</a></li>
+                <li><a href="gioithieu.php">Giới thiệu</a></li>
                 <li><a href="lienhe.php">Liên hệ</a></li>
             </div>
         </div>
