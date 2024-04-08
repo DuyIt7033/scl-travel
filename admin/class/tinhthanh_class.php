@@ -92,4 +92,4 @@ class tinhthanh
         return $result;
     }
 }
-?>S
+?>

@@ -1,6 +1,7 @@
 <?php
 include "header.php";
 include "class/baiviet_class.php";
+include "class/lienhe_class.php";
 
 $id_tinh = $_GET['id_tinh'];
 $tinhthanh = new tinhthanh;
@@ -65,8 +66,10 @@ $baiviet_list = $baiviet->get_baiviet_by_tinh($id_tinh);
 
 
     </div>
+    <button style="margin-bottom:10px ;" class="more">Xem thêm</button>
 </div>
-<button style="margin-bottom:10px ;" class="more">Xem thêm</button>
+<!-- <button style="margin-bottom:10px ;" class="more">Xem thêm</button> -->
+
 </div>
 
 <?php

@@ -1,5 +1,6 @@
 <?php
 include "header.php";
+
 include "class/lienhe_class.php";
 
 
@@ -18,7 +19,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 ?>
-<!-- End header -->
 <div class="a_i_title">
     <img src="./img/common-banner.png">
     <h1>Liên hệ viết bài</h1>

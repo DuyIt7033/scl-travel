@@ -1,5 +1,5 @@
 <?php
-include "./class/tinhthanh_class.php";
+include "class/tinhthanh_class.php";
 $tinhthanh = new tinhthanh;
 $show_tinhthanh = $tinhthanh->show_tinhthanh();
 ?>

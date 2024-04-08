@@ -1,7 +1,7 @@
-<!-- <?php include "header.php";
-      ?> -->
-<!-- End header -->
-
+ <?php 
+ include "header.php";
+ include "class/lienhe_class.php";
+      ?> 
 <div class="a_i_title">
   <img src="./img/scl-baner.jpg" />
   <h1>Đồng bằng Sông Cửu Long</h1>

@@ -1,6 +1,7 @@
 <?php
 include "header.php"; 
 include "class/baiviet_class.php";
+include "class/lienhe_class.php";
 
 $baiviet = new baiviet;
 

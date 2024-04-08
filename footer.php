@@ -1,4 +1,10 @@
-  <!-- footer-->
+ <?php
+
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $lienhe = new lienhe_class();
+    $lienhe->insert_lh_one($_POST);
+}?> 
+<!-- footer-->
   <footer id="footer">
         <div class="back-to-top" onclick="scrollToTop()">↑</div>
     <!-- Contai6 -->

@@ -1,14 +1,8 @@
+
+<?php include "header.php";?>
 <?php
-include "header.php";
 include "class/baiviet_class.php";
 include "class/lienhe_class.php";
-
-
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $lienhe = new lienhe_class();
-    $lienhe->insert_lh_one($_POST);
-}
 
 
 $baiviet = new baiviet;
@@ -43,6 +37,7 @@ if ($show_tinhthanh && $show_tinhthanh->num_rows > 0) {
 
 
 ?>
+
 <!-- contai1 -->
 <section id="slider">
     <div class="container_2">
@@ -63,9 +58,6 @@ if ($show_tinhthanh && $show_tinhthanh->num_rows > 0) {
         <div class="dot"></div>
 
     </div>
-
-    <!-- <h2>Địa chỉ</h2>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3915.9313668976943!2d106.63206727492138!3d11.043772654205789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174d10ed848425b%3A0x91bad64c857b077f!2zS2h1IGR1IGzhu4tjaCDEkOG6oWkgTmFt!5e0!3m2!1svi!2s!4v1704807115146!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
 </section>
 <!-- End contai1 -->
 <!-- contai2 -->
@@ -94,24 +86,24 @@ if ($show_tinhthanh && $show_tinhthanh->num_rows > 0) {
     </div>
     <div class="img_box_container">
         <?php
-       if (!empty($tt_array)) {
-        $count = 0; // Biến đếm số lượng phần tử đã hiển thị
-        foreach ($tt_array as $tt_item) {
-            if ($count >= 6) break; // Nếu đã hiển thị đủ 6 phần tử thì thoát khỏi vòng lặp
-            $id_tinh = $tt_item['id_tinh'];
-            $Ten_tinh = $tt_item['Ten_tinh'];
-            $anh_avt_tinh = $tt_item['anh_avt_tinh'];
-            $image_src = 'admin/' . $anh_avt_tinh; // Đường dẫn đến thư mục uploads
-            ?>
-            <a href="tinhthanh.php?id_tinh=<?php echo $id_tinh; ?>" class="image-box">
-                <h2><?php echo $Ten_tinh; ?></h2>
-                <img src="<?php echo $image_src; ?>">
-            </a>
-            <?php
-            $count++; // Tăng biến đếm
-        }
-    }?>
-    
+        if (!empty($tt_array)) {
+            $count = 0; // Biến đếm số lượng phần tử đã hiển thị
+            foreach ($tt_array as $tt_item) {
+                if ($count >= 6) break; // Nếu đã hiển thị đủ 6 phần tử thì thoát khỏi vòng lặp
+                $id_tinh = $tt_item['id_tinh'];
+                $Ten_tinh = $tt_item['Ten_tinh'];
+                $anh_avt_tinh = $tt_item['anh_avt_tinh'];
+                $image_src = 'admin/' . $anh_avt_tinh; // Đường dẫn đến thư mục uploads
+        ?>
+                <a href="tinhthanh.php?id_tinh=<?php echo $id_tinh; ?>" class="image-box">
+                    <h2><?php echo $Ten_tinh; ?></h2>
+                    <img src="<?php echo $image_src; ?>">
+                </a>
+        <?php
+                $count++; // Tăng biến đếm
+            }
+        } ?>
+
     </div>
 
 </div>
@@ -184,8 +176,8 @@ if ($show_tinhthanh && $show_tinhthanh->num_rows > 0) {
                         <a href="baiviet.php?id_baiviet=<?php echo $bv_rowct['id_baiviet']; ?>">
                             <img src="<?php echo $anh_avt_bv_path; ?>">
                         </a>
-                        <h2 style="white-space: nowrap;font-size: 14px;overflow: hidden; text-overflow: ellipsis;"><?php echo $bv_rowct['tieu_de']; ?></h2>
-                        <p ><?php echo $bv_rowct['mo_ta_ngan']; ?></p>
+                        <h2 style="font-size: 14px;"><?php echo $bv_rowct['tieu_de']; ?></h2>
+                        <p style="font-size: 12px;overflow: hidden; text-overflow: ellipsis;white-space: nowrap;" nowrap;font-size: 14px;overflow: hidden; text-overflow: ellipsis;><?php echo $bv_rowct['mo_ta_ngan']; ?></p>
 
                     </div>
             <?php
