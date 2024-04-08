@@ -46,16 +46,16 @@ window.onload = function() {
             <div class="ten_loai">
                 <p>Tên loại bài viết:</p>
                 <select class="add_lbv" name="ten_loai" required>
-                    <option value="Dl">Đia điểm du lịch</option>
-                    <option value="At">Ẩm thực</option>
-                    <option value="lh">Văn hóa lễ hội</option>
+                    <option value="Đia điểm du lịch">Đia điểm du lịch</option>
+                    <option value="Ẩm thực">Ẩm thực</option>
+                    <option value="Văn hóa lễ hội">Văn hóa lễ hội</option>
                 </select>
             </div>
             <div class="loai_baiviet">
                 <p>Loại bài viết:</p>
                 <select class="add_lbv" name="loai_baiviet" required>
-                    <option value="Summary">Tổng hợp</option>
-                    <option value="deltail">Chi tiết</option>
+                    <option value="Tổng hợp">Tổng hợp</option>
+                    <option value="Chi tiết">Chi tiết</option>
                 </select>
             </div>
         </div>

@@ -47,17 +47,17 @@ if ($get_loaibv) {
                  <!-- Hiển thị giá trị cũ của ten_loai -->
                  <select class="add_lbv" name="ten_loai" required>
                     <option value="">Chọn loại bài viết</option>
-                    <option value="Dl" <?php if(isset($result['loai_baiviet']) && $result['loai_baiviet'] == 'summany') echo 'selected'; ?>>Địa điểm du lịch</option>
-                    <option value="At" <?php if(isset($result['loai_baiviet']) && $result['loai_baiviet'] == 'detail') echo 'selected'; ?>>Ẩm thực</option>
-                    <option value="lh" <?php if(isset($result['loai_baiviet']) && $result['loai_baiviet'] == 'detail') echo 'selected'; ?>>Văn hóa lễ hội</option>
+                    <option value="Địa điểm du lịch" <?php if(isset($result['loai_baiviet']) && $result['loai_baiviet'] == 'summany') echo 'selected'; ?>>Địa điểm du lịch</option>
+                    <option value="Ẩm thực" <?php if(isset($result['loai_baiviet']) && $result['loai_baiviet'] == 'Chi tiết') echo 'selected'; ?>>Ẩm thực</option>
+                    <option value="Văn hóa lễ hội" <?php if(isset($result['loai_baiviet']) && $result['loai_baiviet'] == 'Chi tiết') echo 'selected'; ?>>Văn hóa lễ hội</option>
                 </select>
             </div>
             <div class="loai_baiviet">
                 <p>Loại bài viết:</p>
                 <select name="loai_baiviet" required>
                     <option value="">Chọn loại bài viết</option>
-                    <option value="summany" <?php if(isset($result['loai_baiviet']) && $result['loai_baiviet'] == 'summany') echo 'selected'; ?>>Tổng hợp</option>
-                    <option value="detail" <?php if(isset($result['loai_baiviet']) && $result['loai_baiviet'] == 'detail') echo 'selected'; ?>>Chi tiết</option>
+                    <option value="Tổng hợp" <?php if(isset($result['loai_baiviet']) && $result['loai_baiviet'] == 'Tổng hợp') echo 'selected'; ?>>Tổng hợp</option>
+                    <option value="Chi tiết" <?php if(isset($result['loai_baiviet']) && $result['loai_baiviet'] == 'Chi tiết') echo 'selected'; ?>>Chi tiết</option>
                 </select>
             </div>
         </div>

@@ -1,14 +1,14 @@
 
-<?php include "header.php";?>
-<?php
+<?php 
+include "header.php";
 include "class/baiviet_class.php";
 include "class/lienhe_class.php";
 
 
 $baiviet = new baiviet;
 
-$loai_baiviet_tonghop = "Summary";
-$loai_baiviet_chitiet = "detail";
+$loai_baiviet_tonghop = "Tổng hợp";
+$loai_baiviet_chitiet = "Chi tiết";
 
 $get_bv_loai_bvth = $baiviet->get_bv_loai_baiviet($loai_baiviet_tonghop);
 $get_bv_loai_bvct = $baiviet->get_bv_loai_baiviet($loai_baiviet_chitiet);

@@ -337,13 +337,6 @@ a{
 	color: #ffffff;
 }
 
-
-
-/* .image-box>img:hover{
-
-} */
-  
-  
 /* End slider2 */
 /* Thong tin  */
 .info_tralvel{
@@ -625,6 +618,16 @@ input[type="submit"]:active{
 }
 
 /* End Tiêu chí */
+/* Thong tin du lịch */
+.loc_bv{
+	justify-content: space-evenly;
+    width: 500px;
+    margin: 50px 200px;
+    display: flex;
+
+}
+
+/* Thong tin du lịch */
 /* footer */
 
 #footer {

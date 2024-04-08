@@ -2,7 +2,7 @@
 include "class/baiviet_class.php";
 $offset = isset($_GET['offset']) ? (int)$_GET['offset'] : 0;
 $baiviet = new baiviet;
-$baiviet_list = $baiviet->show_bv_limit(2, $offset); // Sử dụng hàm show_bv_limit với limit = 2 và offset được truyền từ tham số
+$baiviet_list = $baiviet->show_bv_limit(8, $offset); // Sử dụng hàm show_bv_limit với limit = 8 và offset được truyền từ tham số
 
 if ($baiviet_list && $baiviet_list->num_rows > 0) {
     while ($bv_row = $baiviet_list->fetch_assoc()) {
