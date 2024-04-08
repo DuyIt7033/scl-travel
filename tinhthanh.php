@@ -47,7 +47,7 @@ $baiviet_list = $baiviet->get_baiviet_by_tinh($id_tinh);
                 $anh_avt_bv_path = 'admin/uploads/' . $bv_row['anh_avt_bv'];
         ?>
                 <div class="info_tinh_detail">
-                    <a href="" class="info_tinh_img_de">
+                    <a href="baiviet.php?id_baiviet=<?php echo $bv_row['id_baiviet']; ?>" class="info_tinh_img_de">
                         <img src="<?php echo $anh_avt_bv_path; ?>" alt="Ảnh đại diện">
                     </a>
                     <div class="info_tinh_d">
@@ -59,7 +59,7 @@ $baiviet_list = $baiviet->get_baiviet_by_tinh($id_tinh);
         <?php
             }
         } else {
-            echo "Không có bài viết nào.";
+            echo '<div style="display: block;color: red;font-size: 18px; margin: 40px;">Không có bài viết nào phù hợp.</div>';
         }
         ?>
 

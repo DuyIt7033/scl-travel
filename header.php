@@ -5,6 +5,7 @@ $show_tinhthanh = $tinhthanh->show_tinhthanh();
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,12 +51,15 @@ $show_tinhthanh = $tinhthanh->show_tinhthanh();
                 <li><a href="lienhe.php">Liên hệ</a></li>
             </div>
         </div>
-        <div class="others">
+        <form class="others" action="timkiem.php" method="POST">
             <li>
-                <input type="text" placeholder="Tìm kiếm" autofocus>
+                <input type="text" placeholder="Tìm kiếm" name="timkiem" autofocus required>
                 <i class="fa-solid fa-magnifying-glass"></i>
             </li>
             <div><i class="fa-solid fa-bars"></i></div>
-        </div>
+        </form>
+
+
+
     </header>
     <!-- End header -->

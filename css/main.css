@@ -619,12 +619,14 @@ input[type="submit"]:active{
 
 /* End Tiêu chí */
 /* Thong tin du lịch */
-.loc_bv{
-	justify-content: space-evenly;
-    width: 500px;
+.loc_bv {
+    justify-content: space-evenly;
+    width: 600px;
     margin: 50px 200px;
     display: flex;
-
+    border: solid 1px #FAA719;
+    padding: 15px 50px 10px;
+    border-radius: 50px;
 }
 
 /* Thong tin du lịch */
@@ -1292,7 +1294,7 @@ strong{
 .baiviet{
 	background-color: white;
 	font-size: 14px;
-	padding: 50px 100px;
+	padding: 50px 50px 50px 100px;
 	display: flex;
 	justify-content:space-between;
 }
@@ -1302,6 +1304,7 @@ strong{
 	align-items: center;
 	max-width: 70%;
 	overflow: hidden;
+	flex: 7;
 }
 .head_ndc{
 	position: relative;
@@ -1353,6 +1356,7 @@ strong{
 	height: 500px;
 }
 .goi_y{
+	flex: 2;
 	font-size: 12px;
 	margin-top: 20px;
     display: flex;

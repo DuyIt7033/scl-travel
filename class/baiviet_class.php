@@ -88,10 +88,17 @@ class baiviet
     public function filter_bv_by_location_and_type($id_tinh, $id_loai) {
         // Xây dựng câu truy vấn để lấy danh sách bài viết đã lọc
         $query = "SELECT * FROM baiviet WHERE id_tinh = '$id_tinh' AND id_loai = '$id_loai'";
-        // Thực hiện truy vấn
         $result = $this->db->select($query);
         return $result;
     }
+
+    public function search_bv($keyword) {
+        // Chuẩn bị truy vấn SQL để tìm kiếm bài viết dựa trên tiêu đề
+        $query = "SELECT * FROM baiviet WHERE tieu_de LIKE '%$keyword%'";
+        $result = $this->db->select($query);
+        return $result;
+    }
+    
     
 }
 

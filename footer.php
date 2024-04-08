@@ -1,6 +1,7 @@
  <?php
+ 
 
-  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if(isset($_POST['email_cl'])) {
     $lienhe = new lienhe_class();
     $lienhe->insert_lh_one($_POST);
 }?> 
