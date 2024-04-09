@@ -1,15 +1,58 @@
-<?php
-include "header.php";
-include "class/baiviet_class.php";
-include "class/lienhe_class.php";
-
-$baiviet = new baiviet;
-
-$baiviet_list = $baiviet->show_bv_limit(8, 0); // limit = 8 và offset = 0
-$show_tinhthanh = $baiviet->show_tinhthanh();
-$show_loaibv = $baiviet->show_loaibv();
-?>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đồng bằng Sông Cửu Long</title>
+    <!-- main css -->
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container__l_menu">
+        <div class="logo">
+            <a href="index.html">
+            <img src="./img/logo.png" alt="logo">
+        </a>
+        </div>
+        <div class="menu">
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a>Tỉnh thành</a>
+                <ul class="tt_menu">
+                    <li><a href="index.html">Bến Tre</a></li>
+                    <li><a href="#">Vĩnh Long</a></li>
+                    <li><a href="#">Trà Vinh</a></li>
+                    <li><a href="#">Cà Mau</a></li>
+                    <li><a href="#">Bạc Liêu</a></li>
+                    <li><a href="#">Kiên Giang</a></li>
+                    <li><a href="#">An Giang</a></li>
+                    <li><a href="#">Hậu Giang</a></li>
+                    <li><a href="tinhthanh.html">Cần Thơ</a></li>
+                    <li><a href="#">Đồng Tháp</a></li>
+                    <li><a href="#">Tiền Giang</a></li>
+                    <li><a href="#">Long An</a></li>
+                    <li><a href="#">Sóc Trăng</a></li>
+                </ul>
+                    
+            </li>
+            <li><a href="">Thông tin du lịch</a></li>
+            <li><a href="#">Đánh giá</a></li>
+            <li><a href="gioithieu.html">Giới thiệu</a></li>
+            <li><a href="lienhe.html">Liên hệ</a></li>
+            </div>
+        </div>
+        <div class="others">
+            <li>
+                <input type="text" placeholder="Tìm kiếm" autofocus>
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </li>
+            <div><i class="fa-solid fa-bars"></i></div>
+        </div>
+    </header>
+    <!-- End header -->
 <div style="margin-top: 100px;" class="info_tinh">
     <div class="info_tinh_title">
         <h2>Cẩm nang du lịch</h2>

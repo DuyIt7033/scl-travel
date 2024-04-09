@@ -4,7 +4,7 @@ include "class/baiviet_class.php";
 
 $baiviet = new baiviet();
 
-// Lấy giá trị của tỉnh thành và dạng bài viết từ yêu cầu POST
+
 $id_tinh = $_POST['id_tinh'];
 $id_loai = $_POST['id_loai'];
 
@@ -42,4 +42,5 @@ if ($baiviet_list && $baiviet_list->num_rows > 0) {
 } else {
     echo '<div style="display: block;color: red;font-size: 18px; margin: 40px;">Không có bài viết nào phù hợp.</div>';
 }
+
 ?>

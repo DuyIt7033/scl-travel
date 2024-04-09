@@ -620,15 +620,45 @@ input[type="submit"]:active{
 /* End Tiêu chí */
 /* Thong tin du lịch */
 .loc_bv {
-    justify-content: space-evenly;
-    width: 600px;
+    justify-content: space-between;
+    width: fit-content;
     margin: 50px 200px;
     display: flex;
-    border: solid 1px #FAA719;
-    padding: 15px 50px 10px;
+    border: thick double #FAA719;
     border-radius: 50px;
+	overflow: hidden;
+}
+.loc-name{
+	color: white;
+	background-color: #FAA719;
+	padding: 20px 20px 20px 50px;
+	border-radius: 50px 0 0 50px;
+}
+.loc_tinh, .loc_danhmuc{
+	padding: 15px 10px 15px 40px;
 }
 
+.loc_bv>div>select{
+	background-color: #ffe6bc;
+	border: none;
+    border-radius: 10px;
+	padding: 5px 15px;
+}
+.locbv{
+	font-weight: bold;
+	color: white;
+	background-color: #FAA719;
+	padding:20px 50px ;
+	margin-left: 5px;
+	border-radius: 0 50px 50px 0;
+	border: none;
+}
+.locbv:active{
+	background-color: #faa719a0;
+	padding:20px 50px ;
+	border-radius: 0 50px 50px 0;
+	border: none;
+}
 /* Thong tin du lịch */
 /* footer */
 
@@ -665,6 +695,13 @@ input[type="submit"]:active{
 	font-size: 12px;
 }
 
+.col2>ul>li>a{
+	font-size: 11px;
+
+	color: rgb(255, 255, 255);
+    font-weight: bold;
+	
+}
 .container_tt {
     display: flex;
 	align-content: center;
@@ -679,9 +716,11 @@ input[type="submit"]:active{
 	
 }
 .container_tt>ul>li{
+	
+	font-size: 10px;
 	padding: 5px;
 	color: var(--lye);
-	list-style: circle;
+	
 }
 .container_tt>ul>li>a{
 	color: rgb(255, 255, 255);
@@ -697,9 +736,7 @@ input[type="submit"]:active{
 	margin-left: 50px;
 	
 }
-.col2{
-	margin-top: 35px;
-}
+
 .f_hr{
 	padding-left: 2px;
 	background-color: var(--lye);
@@ -1105,7 +1142,7 @@ strong{
 .info_tinh_title>hr{
 	display: block;
 	padding-top: 5px;
-	background-color: #12606f;
+	background-color: #FAA719;
 	border: none;
 	max-width: 300px;
 	border-radius: 5px;

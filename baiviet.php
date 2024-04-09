@@ -50,6 +50,7 @@ if ($id_baiviet) {
             <hr class="hr_baiviet">
 
             <div class="goi_y">
+            <h2>Có thể quan tâm:</h2>
                 <?php
 
                 $count = 0;
