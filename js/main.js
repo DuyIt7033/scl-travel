@@ -31,7 +31,6 @@ function imgSlide() {
   
   
 setInterval(imgSlide, 5000); // Thời gian chuyển đổi ảnh tự động
-// Sự kiện click .fa-bars
 const menu = document.querySelector(".menu")
 const menuButton = document.querySelector(".fa-bars")
 menuButton.addEventListener('click', ()=>{

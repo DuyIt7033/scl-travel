@@ -56,14 +56,12 @@ if (!class_exists('Database')) {
                 }
                 // Thực hiện câu truy vấn
                 $insert_row = $stmt->execute();
-                // Kiểm tra kết quả thực hiện câu truy vấn
                 if($insert_row){
                     return $insert_row;
                 } else {
                     return false;
                 }
             } else {
-                // Nếu không thể chuẩn bị câu truy vấn
                 die("Lỗi chuẩn bị câu truy vấn: " . $this->link->error);
                 return false;
             }

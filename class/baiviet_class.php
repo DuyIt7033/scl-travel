@@ -93,7 +93,6 @@ class baiviet
     }
 
     public function search_bv($keyword) {
-        // Chuẩn bị truy vấn SQL để tìm kiếm bài viết dựa trên tiêu đề
         $query = "SELECT * FROM baiviet WHERE tieu_de LIKE '%$keyword%'";
         $result = $this->db->select($query);
         return $result;

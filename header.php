@@ -51,13 +51,26 @@ $show_tinhthanh = $tinhthanh->show_tinhthanh();
                 <li><a href="lienhe.php">Liên hệ</a></li>
             </div>
         </div>
-        <form class="others" action="timkiem.php" method="POST">
-            <li>
-                <input type="text" placeholder="Tìm kiếm" name="timkiem" autofocus required>
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </li>
-            <div><i class="fa-solid fa-bars"></i></div>
-        </form>
+        <form class="others" action="timkiem.php" method="POST" onsubmit="return validateSearch()">
+    <li>
+        <input type="text" placeholder="Tìm kiếm" name="timkiem" id="searchInput" autofocus required>
+        <i class="fa-solid fa-magnifying-glass"></i>
+    </li>
+    <div><i class="fa-solid fa-bars"></i></div>
+</form>
+
+<script>
+    function validateSearch() {
+        var searchInput = document.getElementById('searchInput').value;
+        var regex = /[!@#$%^&*()+\=\[\]{};':"\\|,.<>\/?]/g;
+        if (regex.test(searchInput)) {
+            alert("Chuỗi tìm kiếm không được chứa ký tự đặc biệt!");
+            return false; 
+        }
+        return true; 
+    }
+</script>
+
 
 
 
